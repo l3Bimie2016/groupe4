@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Implementation-Version: 1.0-SNAPSHOT
+Built-By: Doudou Portable
+Implementation-Vendor-Id: fr.full.statck
+Created-By: IntelliJ IDEA
+Build-Jdk: 1.8.0_65
+Main-Class: ${start-class}
+
