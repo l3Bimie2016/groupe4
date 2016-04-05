@@ -6,6 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -23,9 +25,18 @@ public class HabitationController {
         userTest.setLogin("Foo");
         userTest.setPassword("foo");
 
+        //todo service to get habitationTypesList
+        List<String> habitationTypesList = new ArrayList<String>();
+        habitationTypesList.add("Maison");
+        habitationTypesList.add("Château");
+        habitationTypesList.add("T1");
+        habitationTypesList.add("T2");
+
+
         ModelAndView test = new ModelAndView("/devis/habitation-etape-1");
         model.put("firstName", userTest.getFirstName());
         model.put("lastName", userTest.getLastName());
+        model.put("habitationTypes", habitationTypesList);
         return test;
     }
 

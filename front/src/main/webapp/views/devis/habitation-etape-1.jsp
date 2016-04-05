@@ -27,12 +27,16 @@
             <input type="text" name="nomDevis" id="nomDevis" required/><br/>
 
             <label for="typeHabitation">Type d'habitation</label>
-            <input type="text" name="typeHabitation" id="typeHabitation" required/><br/>
+            <select id="typeHabitation" name="typeHabitation">
+                <c:forEach items="${habitationTypes}" var="type">
+                    <option value="${type}">${type}</option>
+                </c:forEach>
+            </select><br/>
 
             <label for="surfaceHabitation">Surface</label>
-            <input type="text" name="surfaceHabitation" id="surfaceHabitation" required/><br/>
+            <input type="number" name="surfaceHabitation" id="surfaceHabitation" required/><br/><br/>
 
-            <inputt type="reset" value="Vider tous les champs" required/>
+            <input type="reset" value="Vider tous les champs"/>
             <input type="submit" value="Continuer"/>
         </form>
     </body>
