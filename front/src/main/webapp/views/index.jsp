@@ -9,9 +9,8 @@
 	<br />
 	Message: ${message}
     <br />
-	<a href="/logout">Déconnexion</a><br />
-	<a href="/private/client">Vers une page pour utilisateur authentifié sans rôle particulier</a><br />
-	<a href="/private/admin">Vers une page pour utilisateur authentifié ayant le rôle ROLE_ADMIN</a>
+	<a href="/signin">Sign In</a><br />
+
 </body>
 
 </html>
