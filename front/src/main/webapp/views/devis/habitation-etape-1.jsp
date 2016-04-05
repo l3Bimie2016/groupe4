@@ -18,19 +18,19 @@
         <h2>Etape 1</h2>
         <form>
             <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" value="${firstName}" readonly/>
+            <input type="text" name="nom" id="nom" value="${firstName}" readonly/><br/>
 
             <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" value="${lastName}" readonly/>
+            <input type="text" name="prenom" id="prenom" value="${lastName}" readonly/><br/>
 
             <label for="nomDevis">Titre du devis</label>
-            <input type="text" name="nomDevis" id="nomDevis" required/>
+            <input type="text" name="nomDevis" id="nomDevis" required/><br/>
 
             <label for="typeHabitation">Type d'habitation</label>
-            <input type="text" name="typeHabitation" id="typeHabitation" required/>
+            <input type="text" name="typeHabitation" id="typeHabitation" required/><br/>
 
             <label for="surfaceHabitation">Surface</label>
-            <input type="text" name="surfaceHabitation" id="surfaceHabitation" required/>
+            <input type="text" name="surfaceHabitation" id="surfaceHabitation" required/><br/>
 
             <inputt type="reset" value="Vider tous les champs" required/>
             <input type="submit" value="Continuer"/>
