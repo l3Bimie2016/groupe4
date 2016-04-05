@@ -40,7 +40,7 @@ public class IndexController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.getPrincipal() != null && auth.getPrincipal() instanceof User) {
             User user = (User)auth.getPrincipal();
-            m = String.format("Hello %s", user.getUsername());
+            //m = String.format("Hello %s", user.getUsername());
         }
         model.put("message", m);
         return "index";
