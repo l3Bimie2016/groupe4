@@ -11,11 +11,11 @@
     <title>Devis</title>
 </head>
 <body>
-    <h1>Nouveau devis véhicule</h1>
+    <h1>Nouveau devis véhicule | Etape 2</h1>
 
     <h3>Nicolas Melin</h3>
 
-    <form method="post" action="/api/send/devis/etape1">
+    <!-- <form method="post" action="/api/send/devis/etape1">
         <p>
             <label for="nomDevis">Nom du devis :</label>
             <input type="text" name="nomDevis" id="nomDevis" />
@@ -51,7 +51,7 @@
             <br />
             <input type="submit" value="Etape suivante" />
         </p>
-    </form>
+    </form> -->
 
     <script>
 

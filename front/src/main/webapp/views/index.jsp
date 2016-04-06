@@ -11,7 +11,8 @@
     <br />
 	<a href="/logout">Déconnexion</a><br />
 	<a href="/private/client">Vers une page pour utilisateur authentifié sans rôle particulier</a><br />
-	<a href="/private/admin">Vers une page pour utilisateur authentifié ayant le rôle ROLE_ADMIN</a>
+	<a href="/private/admin">Vers une page pour utilisateur authentifié ayant le rôle ROLE_ADMIN</a><br /><br />
+	<a href="/devis/vehicule/etape1">Créer un devis Véhicule</a>
 </body>
 
 </html>

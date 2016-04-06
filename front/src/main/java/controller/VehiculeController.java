@@ -24,15 +24,20 @@ public class VehiculeController {
         return "devis/vehicule-etape-1";
     }
 
+    @RequestMapping("/devis/vehicule/etape2")
+    public String dash() {
+        return "devis/vehicule-etape-2";
+    }
+
     /*@RequestMapping("/api/vehicules")
     public String dash(Map<String, Object> model) {
         return "devis/vehicule-etape-1";
-    }*/
+    }
 
-    @ExceptionHandler(MyException.class)
+    /*@ExceptionHandler(MyException.class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public @ResponseBody
     String handleMyRuntimeException(MyException exception) {
         return "Error -> " + exception.getMessage();
-    }
+    }*/
 }
