@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="option" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: nicol
@@ -11,63 +14,67 @@
     <title>Devis</title>
 </head>
 <body>
-    <h1>Nouveau devis véhicule</h1>
+    <h1>Nouveau devis véhicule | Etape 1/4</h1>
 
     <h3>Nicolas Melin</h3>
 
-    <form method="post" action="/api/send/devis/etape1">
+    <form:form method="post" action="/devis/vehicule/etape2" modelAttribute="modelWizardVehicule">
         <p>
             <label for="nomDevis">Nom du devis :</label>
-            <input type="text" name="nomDevis" id="nomDevis" />
+            <form:input path="nomDevis" id="nomDevis"></form:input>
 
             <br />
             <label for="marque">Marque :</label>
-            <select name="marque" id="marque" >
-                <option value="Renault">Renault</option>
-                <option value="Peugeot">Peugeot</option>
-                <option value="Citroën">Citroën</option>
-                <option value="Opel">Opel</option>
-            </select>
+            <form:select path="marque" id="marque" >
+                <form:option value="Renault">Renault</form:option>
+                <form:option value="Peugeot">Peugeot</form:option>
+                <form:option value="Citroën">Citroën</form:option>
+                <form:option value="Opel">Opel</form:option>
+            </form:select>
 
             <br />
             <label for="modele">Modèles :</label>
-            <select name="modele" id="modele" ></select>
+            <form:select path="modele" id="modele" ></form:select>
 
             <br />
             <label for="carburant">Carburant :</label>
-            <select name="carburant" id="carburant" >
-                <option value="diesel">Diesel</option>
-                <option value="essence">Essence</option>
-            </select>
+            <form:select path="carburant" id="carburant" >
+                <form:option value="diesel">Diesel</form:option>
+                <form:option value="essence">Essence</form:option>
+            </form:select>
 
             <br />
             <label for="chvxfiscaux">Cheveaux fiscaux :</label>
-            <select name="chvxfiscaux" id="chvxfiscaux" >
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-            </select>
+            <form:select path="chvxfiscaux" id="chvxfiscaux" >
+                <form:option value="5">5</form:option>
+                <form:option value="6">6</form:option>
+                <form:option value="7">7</form:option>
+            </form:select>
 
-            <br />
+            <br /><br />
             <input type="submit" value="Etape suivante" />
+
+            <br /><br />
+            <a href="/"><input type="button" value="Annuler" /></a>
         </p>
-    </form>
+    </form:form>
 
     <script>
 
         "use strict";
 
         let marque = document.getElementById("marque").value;
-        setMarques(marque);
+        setMarques(marque, "${modelWizardVehicule.modele}");
 
         document.getElementById("marque").addEventListener("change", function(){
             let marque = document.getElementById("marque").value;
-            setMarques(marque);
+
+            setMarques(marque, "${modelWizardVehicule.modele}");
         });
 
 
 
-        function setMarques(marque) {
+        function setMarques(marque, m) {
             fetch('http://localhost:8080/api/modeles?marque='+marque)
             .then(function(response) {   //res => res.json()
                 return response.json();
@@ -79,6 +86,9 @@
                     var textOpt = document.createTextNode(json[i]);
                     opt.value = json[i];
                     opt.innerHTML = json[i];
+                    if(json[i] == m) {
+                        opt.setAttribute('selected', true);
+                    }
                     document.getElementById("modele").appendChild(opt);
                 }
             })

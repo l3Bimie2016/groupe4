@@ -1,6 +1,4 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
-<%@ taglib prefix="option" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: nicol
@@ -14,25 +12,32 @@
     <title>Devis</title>
 </head>
 <body>
-    <h1>Nouveau devis véhicule | Etape 2/4</h1>
+    <h1>Nouveau devis véhicule | Etape 3/4</h1>
 
     <h3>Nicolas Melin</h3>
 
-    <form:form method="post" action="/devis/vehicule/etape3" modelAttribute="modelWizardVehicule">
+    <form:form method="post" action="/devis/vehicule/etape4" modelAttribute="modelWizardVehicule">
         <p>
-            <label for="datePermis">Date de permis :</label>
-            <form:input path="datePermis" type="date" id="datePermis"></form:input>
+            <label for="conducteurPrincipal">Conducteur principal :</label>
+            <form:input path="conducteurPrincipal" id="conducteurPrincipal"></form:input>
 
             <br />
-            <label for="nbAccident">Nombre d'accident(s) :</label>
-            <form:input type="number" path="nbAccident" id="nbAccident" value="0" min="0"></form:input>
+            <label for="conducteurSecondaire">Conducteur secondaire :</label>
+            <form:input path="conducteurSecondaire" id="conducteurSecondaire"></form:input>
 
             <br />
-            <label for="bonusMalus">Bonus / malus</label>
-            <form:input path="bonusMalus"  id="bonusMalus" step="0.01" value="1" min="0.50" max="50"></form:input>
+            <label for="dortDansGarage">Dort dans un garage :</label>
+            <form:select path="dortDansGarage">
+                <form:option value="oui"></form:option>
+                <form:option value="non"></form:option>
+            </form:select>
+
+            <br />
+            <label for="adresse">Adresse :</label>
+            <form:input path="adresse"></form:input>
 
             <br /><br />
-            <a href="/back/devis/vehicule/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+            <a href="/devis/vehicule/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
             <br /><br />
             <a href="/"><input type="button" value="Annuler" /></a>

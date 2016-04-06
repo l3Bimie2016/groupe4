@@ -16,7 +16,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
  * Created by Nico on 09/02/2016.
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"config","controller","fr"})
+@ComponentScan(basePackages = {"config","controller","fr", "validator"})
 @EnableJpaRepositories(basePackages = "fr")
 @EntityScan(basePackages = {"fr"})
 @Import(value = {WebSecurityConfig.class, WebMvcConfig.class})
