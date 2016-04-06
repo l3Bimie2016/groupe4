@@ -7,7 +7,7 @@ public class Vehicule {
     private String marque;
     private String modele;
     private String carburant;
-    private String puissance;
+    private int puissance;
 
     public Vehicule() {
     }
@@ -36,7 +36,7 @@ public class Vehicule {
         this.carburant = carburant;
     }
 
-    public String getPuissance() {
+    public int getPuissance() {
         return puissance;
     }
 
