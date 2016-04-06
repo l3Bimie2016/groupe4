@@ -4,17 +4,21 @@ package fr;
  * Created by termiton on 06/04/16.
  */
 public class DevisVehicule {
-    String quotVName;
-    double priceAssVehicle;
-    int quotStep;
-    String userDriverLicense;
-    int userNbAccident;
-    double userBonus;
-    boolean vehicleShed;
-    String vehicleFirstDriver;
-    String vehiculeSecondDriver;
-    int vehicleContractID;
-    String userLogin;
+    private String quotVName;
+    private double priceAssVehicle;
+    private int quotStep;
+    private String userDriverLicense;
+    private int userNbAccident;
+    private double userBonus;
+    private boolean vehicleShed;
+    private String vehicleFirstDriver;
+    private String vehiculeSecondDriver;
+    private int vehicleContractID;
+    private String userLogin;
+    private String vehicleBrand;
+    private String vehicleModel;
+    private String vehicleFuel;
+    private String vehicleHP;
 
     public DevisVehicule() {
     }
@@ -106,6 +110,38 @@ public class DevisVehicule {
 
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
+    }
+
+    public String getVehicleBrand() {
+        return vehicleBrand;
+    }
+
+    public void setVehicleBrand(String vehicleBrand) {
+        this.vehicleBrand = vehicleBrand;
+    }
+
+    public String getVehicleModel() {
+        return vehicleModel;
+    }
+
+    public void setVehicleModel(String vehicleModel) {
+        this.vehicleModel = vehicleModel;
+    }
+
+    public String getVehicleFuel() {
+        return vehicleFuel;
+    }
+
+    public void setVehicleFuel(String vehicleFuel) {
+        this.vehicleFuel = vehicleFuel;
+    }
+
+    public String getVehicleHP() {
+        return vehicleHP;
+    }
+
+    public void setVehicleHP(String vehicleHP) {
+        this.vehicleHP = vehicleHP;
     }
 
     public double calculTarif(){
