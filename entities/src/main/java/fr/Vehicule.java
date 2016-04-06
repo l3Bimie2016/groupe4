@@ -40,7 +40,7 @@ public class Vehicule {
         return puissance;
     }
 
-    public void setPuissance(String puissance) {
+    public void setPuissance(int puissance) {
         this.puissance = puissance;
     }
 }

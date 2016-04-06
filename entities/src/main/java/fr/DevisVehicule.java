@@ -18,7 +18,7 @@ public class DevisVehicule {
     private String vehicleBrand;
     private String vehicleModel;
     private String vehicleFuel;
-    private int vehicleHP;
+    private Integer vehicleHP;
 
     public DevisVehicule() {
     }
@@ -136,11 +136,11 @@ public class DevisVehicule {
         this.vehicleFuel = vehicleFuel;
     }
 
-    public int getVehicleHP() {
+    public Integer getVehicleHP() {
         return vehicleHP;
     }
 
-    public void setVehicleHP(String vehicleHP) {
+    public void setVehicleHP(Integer vehicleHP) {
         this.vehicleHP = vehicleHP;
     }
 

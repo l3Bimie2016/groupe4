@@ -1,10 +1,18 @@
 package fr;
 
+import javax.persistence.*;
+
 /**
  * Created by termiton on 06/04/16.
  */
+@Entity(name = "QuotationHome")
 public class DevisHabitation {
-    private String quotHName
+
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer quotHID;
+    private String quotHName;
     private double homeSurface;
     private double homeTerraceSurface;
     private double homeGardenSurface;
@@ -13,9 +21,13 @@ public class DevisHabitation {
     private int homeFloor;
     private boolean homeGarage;
     private double priceAssHome;
-    private int homeContractID;
+
+
+    @ManyToOne
+    @JoinColumn(name="homeContractID", nullable=false)
+    private HomeContractType homeContract;
     private String userLogin;
-    int quotStep;
+    private int quotStep;
 
     public DevisHabitation() {
     }
@@ -88,13 +100,7 @@ public class DevisHabitation {
 
     public void setPriceAssHome(double priceAssHome) { this.priceAssHome = priceAssHome; }
 
-    public int getHomeContractID() {
-        return homeContractID;
-    }
 
-    public void setHomeContractID(int homeContractID) {
-        this.homeContractID = homeContractID;
-    }
 
     public String getUserLogin() {
         return userLogin;
@@ -112,9 +118,27 @@ public class DevisHabitation {
         this.quotStep = quotStep;
     }
 
+    public Integer getQuotHID() {
+        return quotHID;
+    }
+
+    public void setQuotHID(Integer quotHID) {
+        this.quotHID = quotHID;
+    }
+
+
+
+    public HomeContractType getHomeContract() {
+        return homeContract;
+    }
+
+    public void setHomeContract(HomeContractType homeContract) {
+        this.homeContract = homeContract;
+    }
+
     // Calcul du tarif de l'assurance
     public double calculTarif() {
-        double result;
+        double result = 0;
         double maj = 0;
         double hms = this.homeSurface;
         double hts = this.homeTerraceSurface;
@@ -122,14 +146,14 @@ public class DevisHabitation {
         double nbr = (double) this.homeNbRoom;
         double nbb = (double) this.homeNbBathroom;
         double flo = (double) this.homeFloor;
-        double ctr = (double) this.homeContractID;
+        //double ctr = (double) this.homeContractID;
 
         // Si l'utilisateur possède un garage
         if (this.homeGarage){
             maj = 50;
         }
         // Calcul à la con
-        result = maj + (hms + hts + hgs) / (nbr + nbb + flo) * ctr;
+        //result = maj + (hms + hts + hgs) / (nbr + nbb + flo) * ctr;
 
         return result;
     }
