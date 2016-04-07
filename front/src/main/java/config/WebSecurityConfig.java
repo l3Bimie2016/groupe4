@@ -1,6 +1,7 @@
 package config;
 
 import fr.auth.AuthClientService;
+import fr.auth.AuthenticationProviderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Bean;
@@ -70,15 +71,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private AuthClientService authClientService;
 
+    @Autowired
+    private AuthenticationProviderService authenticationProviderService;
+
     /**
      * Surcharge de la configuration
      * @param auth
      * @throws Exception
      */
     @Autowired
-    public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception
-    {
-        auth.userDetailsService(authClientService).passwordEncoder(new BCryptPasswordEncoder());
+    public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception {
+        auth.authenticationProvider(authenticationProviderService);
+        //auth.userDetailsService(authClientService).passwordEncoder(new BCryptPasswordEncoder());
 
     }
 
