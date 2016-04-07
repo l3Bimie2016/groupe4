@@ -25,12 +25,7 @@
 
             <br />
             <label for="marque">Marque :</label>
-            <form:select path="marque" id="marque" >
-                <form:option value="Renault">Renault</form:option>
-                <form:option value="Peugeot">Peugeot</form:option>
-                <form:option value="Citroën">Citroën</form:option>
-                <form:option value="Opel">Opel</form:option>
-            </form:select>
+            <form:select path="marque" id="marque" ></form:select>
 
             <br />
             <label for="modele">Modèles :</label>
@@ -63,19 +58,46 @@
 
         "use strict";
 
-        let marque = document.getElementById("marque").value;
-        setMarques(marque, "${modelWizardVehicule.modele}");
+        setMarques("${modelWizardVehicule.marque}");
 
-        document.getElementById("marque").addEventListener("change", function(){
+        function setMarques(m) {
+            fetch('http://10.3.4.21:8090/api/marques')
+            .then(function (response) {   //res => res.json()
+                return response.json();
+            })
+            .then(function (json) {
+                console.log(json)
+                for (var i in json) {
+                    console.log(json[i].vehicleBrand);
+
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleBrand);
+                    opt.value = json[i].vehicleBrand;
+                    opt.innerHTML = json[i].vehicleBrand;
+                    if (json[i].vehicleBrand == m) {
+                        opt.setAttribute('selected', true);
+                    }
+                    document.getElementById("marque").appendChild(opt);
+                }
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+        }
+
             let marque = document.getElementById("marque").value;
+            //setMarques(marque, "${modelWizardVehicule.modele}");
 
-            setMarques(marque, "${modelWizardVehicule.modele}");
-        });
+            /*document.getElementById("marque").addEventListener("change", function(){
+                let marque = document.getElementById("marque").value;
+
+                setMarques(marque, "${modelWizardVehicule.modele}");
+            });*/
 
 
 
-        function setMarques(marque, m) {
-            fetch('http://localhost:8080/api/modeles?marque='+marque)
+        /*function setModele(modele, m) {
+            fetch('http://localhost:8080/api/modeles?marque='+modele)
             .then(function(response) {   //res => res.json()
                 return response.json();
             })
@@ -95,7 +117,7 @@
             .catch(function(err) {
                 console.error(err);
             });
-        }
+        }*/
 
     </script>
 
