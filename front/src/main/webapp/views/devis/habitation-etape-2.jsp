@@ -1,3 +1,7 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="option" uri="http://www.springframework.org/tags/form" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Joelle
@@ -8,6 +12,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="frm" uri="http://www.springframework.org/tags/form" %>
 
 <html>
     <head>
@@ -17,25 +22,45 @@
         <h1>Devis d'habitation</h1>
         <h2>Etape 2</h2>
 
-        <form>
-            <label for="nbPieces">Nombre de pièces</label>
-            <input type="number" name="nbPieces" id="nbPieces" required/><br/>
+        <form:form method="post" action="/devis/habitation/etape3" modelAttribute="modelWizardHabitation">
+            <p>
+                <label for="nbPieces">Nombre de pièce(s) :</label>
+                <form:input path="nbPieces" type="number" id="nbPieces" min="1" step="1" ></form:input>
 
-            <c:if test="${devis.typeHabitation == 'appartement'}">
-                <label for="etage">Etage</label>
-                <input type="text" name="etage" id="etage" required/><br/>
-            </c:if>
+                <br id="brEtage" />
+                <label for="etage" id="etageLabel">Etage :</label>
+                <form:select path="etage" class="etage" id="etage">
+                    <form:option value="oui"></form:option>
+                    <form:option value="non"></form:option>
+                </form:select>
 
-            <label for="nbSallesDeBain">Nombre de salles de bain</label>
-            <input type="number" name="nbSallesDeBain" id="nbSallesDeBain" required/><br/>
+                <br />
+                <label for="nbSalleDeBain">Nombre de salle de bain :</label>
+                <form:input path="nbSalleDeBain" id="nbSalleDeBain" type="number" min="0" step="1"></form:input>
 
-            <label>Présence d'un garage</label>
-            <input type="radio" name="garage" value="true"> Oui
-            <input type="radio" name="garage" value="false"> Non<br/>
+                <br />
+                <label for="garage">Garage :</label>
+                <form:select path="garage">
+                    <form:option value="oui"></form:option>
+                    <form:option value="non"></form:option>
+                </form:select>
 
-            <input type="reset" value="Vider tous les champs" required/>
-            <input type="submit" value="Continuer"/>
+                <br /><br />
+                <a href="/back/devis/habitation/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
-        </form>
+                <br /><br />
+                <a href="/"><input type="button" value="Annuler" /></a>
+            </p>
+        </form:form>
+
+        <script>
+
+            if("${modelWizardHabitation.typeHabitation}" != "Appartement") {
+                document.getElementById('etage').remove();
+                document.getElementById('etageLabel').remove();
+                document.getElementById('brEtage').remove();
+            }
+        </script>
+
     </body>
 </html>

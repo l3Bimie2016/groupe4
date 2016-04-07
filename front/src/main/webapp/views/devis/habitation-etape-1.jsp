@@ -1,3 +1,7 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="option" uri="http://www.springframework.org/tags/form" %>
+
 <%--
   Created by IntelliJ IDEA.
   User: Joelle
@@ -14,30 +18,33 @@
         <title>Devis Habitation - Etape 1</title>
     </head>
     <body>
-        <h1>Devis d'habitation</h1>
-        <h2>Etape 1</h2>
-        <form>
-            <label for="nom">Nom</label>
-            <input type="text" name="nom" id="nom" value="${firstName}" readonly/><br/>
+        <h1>Devis d'habitation | Etape 1/4</h1>
 
-            <label for="prenom">Prénom</label>
-            <input type="text" name="prenom" id="prenom" value="${lastName}" readonly/><br/>
+        <h3>Nicolas Melin</h3>
 
-            <label for="nomDevis">Titre du devis</label>
-            <input type="text" name="nomDevis" id="nomDevis" required/><br/>
+        <form:form method="post" action="/devis/habitation/etape2" modelAttribute="modelWizardHabitation">
+            <p>
+                <label for="nomDevis">Nom du devis :</label>
+                <form:input path="nomDevis" id="nomDevis"></form:input>
 
-            <label for="typeHabitation">Type d'habitation</label>
-            <select id="typeHabitation" name="typeHabitation">
-                <c:forEach items="${habitationTypes}" var="type">
-                    <option value="${type}">${type}</option>
-                </c:forEach>
-            </select><br/>
+                <br />
+                <label for="typeHabitation">Type d'habitation :</label>
+                <form:select path="typeHabitation" id="typeHabitation" >
+                    <form:option value="Maison"></form:option>
+                    <form:option value="Appartement"></form:option>
+                </form:select>
 
-            <label for="surfaceHabitation">Surface</label>
-            <input type="number" name="surfaceHabitation" id="surfaceHabitation" required/><br/><br/>
+                <br />
+                <label for="surface">Surface :</label>
+                <form:select path="surface" id="surface" ></form:select>
 
-            <input type="reset" value="Vider tous les champs"/>
-            <input type="submit" value="Continuer"/>
-        </form>
+                <br /><br />
+                <input type="submit" value="Etape suivante" />
+
+                <br /><br />
+                <a href="/"><input type="button" value="Annuler" /></a>
+            </p>
+        </form:form>
+
     </body>
 </html>

@@ -9,10 +9,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Devis</title>
+    <title>Devis Véhicule - Etape 3</title>
 </head>
 <body>
-    <h1>Nouveau devis véhicule | Etape 3/4</h1>
+    <h1>Devis véhicule | Etape 3/4</h1>
 
     <h3>Nicolas Melin</h3>
 
