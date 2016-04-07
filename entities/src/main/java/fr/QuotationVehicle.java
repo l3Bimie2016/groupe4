@@ -17,7 +17,7 @@ public class QuotationVehicle {
     private Byte vehicleShed;
     private String vehicleFirstDriver;
     private String vehicleSecondDriver;
-    private int vehicleContractId;
+
     private String userLogin;
     private String vehicleBrand;
     private String vehicleModel;
@@ -126,15 +126,6 @@ public class QuotationVehicle {
         this.vehicleSecondDriver = vehicleSecondDriver;
     }
 
-    @Basic
-    @Column(name = "vehicleContractID", nullable = false)
-    public int getVehicleContractId() {
-        return vehicleContractId;
-    }
-
-    public void setVehicleContractId(int vehicleContractId) {
-        this.vehicleContractId = vehicleContractId;
-    }
 
     @Basic
     @Column(name = "userLogin", nullable = false, length = 50)
@@ -186,58 +177,6 @@ public class QuotationVehicle {
         this.vehicleHp = vehicleHp;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        QuotationVehicle that = (QuotationVehicle) o;
-
-        if (quotVid != that.quotVid) return false;
-        if (vehicleContractId != that.vehicleContractId) return false;
-        if (quotVName != null ? !quotVName.equals(that.quotVName) : that.quotVName != null) return false;
-        if (priceAssVehicle != null ? !priceAssVehicle.equals(that.priceAssVehicle) : that.priceAssVehicle != null)
-            return false;
-        if (quotStep != null ? !quotStep.equals(that.quotStep) : that.quotStep != null) return false;
-        if (userDriverLicense != null ? !userDriverLicense.equals(that.userDriverLicense) : that.userDriverLicense != null)
-            return false;
-        if (userNbAccident != null ? !userNbAccident.equals(that.userNbAccident) : that.userNbAccident != null)
-            return false;
-        if (userBonus != null ? !userBonus.equals(that.userBonus) : that.userBonus != null) return false;
-        if (vehicleShed != null ? !vehicleShed.equals(that.vehicleShed) : that.vehicleShed != null) return false;
-        if (vehicleFirstDriver != null ? !vehicleFirstDriver.equals(that.vehicleFirstDriver) : that.vehicleFirstDriver != null)
-            return false;
-        if (vehicleSecondDriver != null ? !vehicleSecondDriver.equals(that.vehicleSecondDriver) : that.vehicleSecondDriver != null)
-            return false;
-        if (userLogin != null ? !userLogin.equals(that.userLogin) : that.userLogin != null) return false;
-        if (vehicleBrand != null ? !vehicleBrand.equals(that.vehicleBrand) : that.vehicleBrand != null) return false;
-        if (vehicleModel != null ? !vehicleModel.equals(that.vehicleModel) : that.vehicleModel != null) return false;
-        if (vehicleFuel != null ? !vehicleFuel.equals(that.vehicleFuel) : that.vehicleFuel != null) return false;
-        if (vehicleHp != null ? !vehicleHp.equals(that.vehicleHp) : that.vehicleHp != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = quotVid;
-        result = 31 * result + (quotVName != null ? quotVName.hashCode() : 0);
-        result = 31 * result + (priceAssVehicle != null ? priceAssVehicle.hashCode() : 0);
-        result = 31 * result + (quotStep != null ? quotStep.hashCode() : 0);
-        result = 31 * result + (userDriverLicense != null ? userDriverLicense.hashCode() : 0);
-        result = 31 * result + (userNbAccident != null ? userNbAccident.hashCode() : 0);
-        result = 31 * result + (userBonus != null ? userBonus.hashCode() : 0);
-        result = 31 * result + (vehicleShed != null ? vehicleShed.hashCode() : 0);
-        result = 31 * result + (vehicleFirstDriver != null ? vehicleFirstDriver.hashCode() : 0);
-        result = 31 * result + (vehicleSecondDriver != null ? vehicleSecondDriver.hashCode() : 0);
-        result = 31 * result + vehicleContractId;
-        result = 31 * result + (userLogin != null ? userLogin.hashCode() : 0);
-        result = 31 * result + (vehicleBrand != null ? vehicleBrand.hashCode() : 0);
-        result = 31 * result + (vehicleModel != null ? vehicleModel.hashCode() : 0);
-        result = 31 * result + (vehicleFuel != null ? vehicleFuel.hashCode() : 0);
-        result = 31 * result + (vehicleHp != null ? vehicleHp.hashCode() : 0);
-        return result;
-    }
 
     @ManyToOne
     @JoinColumn(name = "vehicleContractID", referencedColumnName = "vehicleContractID", nullable = false)

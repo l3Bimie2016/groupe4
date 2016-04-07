@@ -18,7 +18,7 @@ public class QuotationHome {
     private Double homeGardenSurface;
     private Double homeTerraceSurface;
     private Double priceAssHome;
-    private int homeContractId;
+
     private String userLogin;
     private HomeContractType homeContract;
 
@@ -133,16 +133,6 @@ public class QuotationHome {
     }
 
     @Basic
-    @Column(name = "homeContractID", nullable = false)
-    public int getHomeContractId() {
-        return homeContractId;
-    }
-
-    public void setHomeContractId(int homeContractId) {
-        this.homeContractId = homeContractId;
-    }
-
-    @Basic
     @Column(name = "userLogin", nullable = false, length = 50)
     public String getUserLogin() {
         return userLogin;
@@ -152,50 +142,6 @@ public class QuotationHome {
         this.userLogin = userLogin;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        QuotationHome that = (QuotationHome) o;
-
-        if (quotHid != that.quotHid) return false;
-        if (homeContractId != that.homeContractId) return false;
-        if (quotHName != null ? !quotHName.equals(that.quotHName) : that.quotHName != null) return false;
-        if (homeSurface != null ? !homeSurface.equals(that.homeSurface) : that.homeSurface != null) return false;
-        if (homeNbRoom != null ? !homeNbRoom.equals(that.homeNbRoom) : that.homeNbRoom != null) return false;
-        if (quotStep != null ? !quotStep.equals(that.quotStep) : that.quotStep != null) return false;
-        if (homeFloor != null ? !homeFloor.equals(that.homeFloor) : that.homeFloor != null) return false;
-        if (homeNbBathroom != null ? !homeNbBathroom.equals(that.homeNbBathroom) : that.homeNbBathroom != null)
-            return false;
-        if (homeGarage != null ? !homeGarage.equals(that.homeGarage) : that.homeGarage != null) return false;
-        if (homeGardenSurface != null ? !homeGardenSurface.equals(that.homeGardenSurface) : that.homeGardenSurface != null)
-            return false;
-        if (homeTerraceSurface != null ? !homeTerraceSurface.equals(that.homeTerraceSurface) : that.homeTerraceSurface != null)
-            return false;
-        if (priceAssHome != null ? !priceAssHome.equals(that.priceAssHome) : that.priceAssHome != null) return false;
-        if (userLogin != null ? !userLogin.equals(that.userLogin) : that.userLogin != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = quotHid;
-        result = 31 * result + (quotHName != null ? quotHName.hashCode() : 0);
-        result = 31 * result + (homeSurface != null ? homeSurface.hashCode() : 0);
-        result = 31 * result + (homeNbRoom != null ? homeNbRoom.hashCode() : 0);
-        result = 31 * result + (quotStep != null ? quotStep.hashCode() : 0);
-        result = 31 * result + (homeFloor != null ? homeFloor.hashCode() : 0);
-        result = 31 * result + (homeNbBathroom != null ? homeNbBathroom.hashCode() : 0);
-        result = 31 * result + (homeGarage != null ? homeGarage.hashCode() : 0);
-        result = 31 * result + (homeGardenSurface != null ? homeGardenSurface.hashCode() : 0);
-        result = 31 * result + (homeTerraceSurface != null ? homeTerraceSurface.hashCode() : 0);
-        result = 31 * result + (priceAssHome != null ? priceAssHome.hashCode() : 0);
-        result = 31 * result + homeContractId;
-        result = 31 * result + (userLogin != null ? userLogin.hashCode() : 0);
-        return result;
-    }
 
     @ManyToOne
     @JoinColumn(name = "homeContractID", referencedColumnName = "homeContractID", nullable = false)

@@ -7,7 +7,6 @@ import org.springframework.data.repository.CrudRepository;
  */
 public interface DevisVehiculeRepository extends CrudRepository<QuotationVehicle,Integer> {
 
-    QuotationVehicle findByUserlogin(String userLogin);
-    QuotationVehicle findByQuotvid(int id);
+    QuotationVehicle findByUserLogin(String userLogin);
 
 }
