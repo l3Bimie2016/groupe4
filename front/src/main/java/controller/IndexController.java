@@ -26,7 +26,7 @@ public class IndexController {
     private ModelUser modelUser;
 
     @Value("${application.message:Hello World}")
-    private String message = "Hello World";
+    private String message = "";
 
     public String test(){
             RestTemplate rest = new RestTemplate();
