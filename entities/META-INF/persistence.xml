@@ -2,10 +2,10 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="persistenceUnit">
-        <class>fr.entity.HomeContractType</class>
-        <class>fr.entity.QuotationHome</class>
-        <class>fr.entity.QuotationVehicle</class>
-        <class>fr.entity.VehiculeContractType</class>
+        <class>fr.HomeContractType</class>
+        <class>fr.QuotationHome</class>
+        <class>fr.QuotationVehicle</class>
+        <class>fr.VehiculeContractType</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://91.121.192.13:3306/groupe4spring"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>

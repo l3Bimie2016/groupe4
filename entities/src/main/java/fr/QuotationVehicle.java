@@ -1,4 +1,4 @@
-package fr.entity;
+package fr;
 
 import javax.persistence.*;
 

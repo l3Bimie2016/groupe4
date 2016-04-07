@@ -1,31 +1,28 @@
 package fr;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by termiton on 06/04/16.
  */
 @Entity
 public class HomeContractType {
+    private int homeContractId;
+    private String homeContractName;
 
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer homeContractID;
-
-    private String homeContractName;
-
-    public Integer getHomeContractID() {
-        return homeContractID;
+    @Column(name = "homeContractID", nullable = false)
+    public int getHomeContractId() {
+        return homeContractId;
     }
 
-    public void setHomeContractID(Integer homeContractID) {
-        this.homeContractID = homeContractID;
+    public void setHomeContractId(int homeContractId) {
+        this.homeContractId = homeContractId;
     }
 
+    @Basic
+    @Column(name = "homeContractName", nullable = true, length = 20)
     public String getHomeContractName() {
         return homeContractName;
     }
@@ -33,4 +30,27 @@ public class HomeContractType {
     public void setHomeContractName(String homeContractName) {
         this.homeContractName = homeContractName;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        HomeContractType that = (HomeContractType) o;
+
+        if (homeContractId != that.homeContractId) return false;
+        if (homeContractName != null ? !homeContractName.equals(that.homeContractName) : that.homeContractName != null)
+            return false;
+
+        return true;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = homeContractId;
+        result = 31 * result + (homeContractName != null ? homeContractName.hashCode() : 0);
+        return result;
+    }
+
+
 }
