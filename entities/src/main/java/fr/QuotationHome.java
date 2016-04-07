@@ -18,8 +18,11 @@ public class QuotationHome {
     private Double homeGardenSurface;
     private Double homeTerraceSurface;
     private Double priceAssHome;
-
     private String userLogin;
+
+    private String homeHeater;
+    private String homeNote;
+
     private HomeContractType homeContract;
 
     @Id
@@ -141,6 +144,24 @@ public class QuotationHome {
     public void setUserLogin(String userLogin) {
         this.userLogin = userLogin;
     }
+
+    @Basic
+    @Column(name = "homeHeater", nullable = true, length = 50)
+    public String getHomeHeater() {
+        return homeHeater;
+    }
+
+    public void setHomeHeater(String homeHeater) {
+        this.homeHeater = homeHeater;
+    }
+
+    @Basic
+    @Column(name = "homeNote", nullable = true, length = 250)
+    public String getHomeNote() {
+        return homeNote;
+    }
+
+    public void setHomeNote(String homeNote) {this.homeNote = homeNote;
 
 
     @ManyToOne

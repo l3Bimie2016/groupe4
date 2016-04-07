@@ -10,6 +10,10 @@ import javax.validation.constraints.Size;
  */
 public class ModelWizardVehicule {
 
+
+    @NotEmpty @NotNull
+    private Integer idDevis;
+
     @NotEmpty @NotNull
     private String nomDevis;
 
@@ -45,6 +49,14 @@ public class ModelWizardVehicule {
 
     public String getType() {
         return type;
+    }
+
+    public Integer getIdDevis() {
+        return idDevis;
+    }
+
+    public void setIdDevis(Integer idDevis) {
+        this.idDevis = idDevis;
     }
 
     public void setType(String type) {
