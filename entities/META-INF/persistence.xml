@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="persistenceUnit">
+        <class>fr.HomeContractType</class>
+        <class>fr.QuotationHome</class>
+        <class>fr.QuotationVehicle</class>
+        <class>fr.VehiculeContractType</class>
+        <properties>
+            <property name="hibernate.connection.url" value="jdbc:mysql://91.121.192.13:3306/groupe4spring"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.username" value="groupe4"/>
+            <property name="hibernate.connection.password" value="GHT1VTT9"/>
+        </properties>
+    </persistence-unit>
+</persistence>
