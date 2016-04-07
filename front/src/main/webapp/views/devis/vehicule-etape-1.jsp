@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="select" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="option" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: nicol
@@ -8,81 +11,114 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Devis</title>
+    <title>Devis Véhicule - Etape 1</title>
 </head>
 <body>
-    <h1>Nouveau devis véhicule</h1>
+    <h1>Devis véhicule | Etape 1/4</h1>
 
     <h3>Nicolas Melin</h3>
 
-    <form method="post" action="">
+    <form:form method="post" action="/devis/vehicule/etape2" modelAttribute="modelWizardVehicule">
         <p>
             <label for="nomDevis">Nom du devis :</label>
-            <input type="text" name="nomDevis" id="nomDevis" />
+            <form:input path="nomDevis" id="nomDevis"></form:input>
 
             <br />
             <label for="marque">Marque :</label>
-            <select name="marque" id="marque" >
-                <option value="Renault">Renault</option>
-                <option value="Peugeot">Peugeot</option>
-                <option value="Citroën">Citroën</option>
-                <option value="Opel">Opel</option>
-            </select>
+            <form:select path="marque" id="marque" ></form:select>
 
             <br />
             <label for="modele">Modèles :</label>
-            <select name="modele" id="modele" ></select>
+            <form:select path="modele" id="modele" ></form:select>
 
             <br />
             <label for="carburant">Carburant :</label>
-            <select name="carburant" id="carburant" >
-                <option value="diesel">Diesel</option>
-                <option value="essence">Essence</option>
-            </select>
+            <form:select path="carburant" id="carburant" >
+                <form:option value="diesel">Diesel</form:option>
+                <form:option value="essence">Essence</form:option>
+            </form:select>
 
             <br />
             <label for="chvxfiscaux">Cheveaux fiscaux :</label>
-            <select name="chvxfiscaux" id="chvxfiscaux" >
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-            </select>
+            <form:select path="chvxfiscaux" id="chvxfiscaux" >
+                <form:option value="5">5</form:option>
+                <form:option value="6">6</form:option>
+                <form:option value="7">7</form:option>
+            </form:select>
 
+            <br /><br />
+            <input type="submit" value="Etape suivante" />
+
+            <br /><br />
+            <a href="/"><input type="button" value="Annuler" /></a>
         </p>
-    </form>
-
-    <button>Etape suivante</button>
+    </form:form>
 
     <script>
 
         "use strict";
 
+        setMarques("${modelWizardVehicule.marque}");
+
         let marque = document.getElementById("marque").value;
-        setMarques(marque);
+        setModeles(marque, "${modelWizardVehicule.modele}");
+
+
 
         document.getElementById("marque").addEventListener("change", function(){
             let marque = document.getElementById("marque").value;
-            setMarques(marque);
+
+            setModeles(marque, "");
         });
 
 
 
-        function setMarques(marque) {
-            fetch('http://localhost:8080/api/modeles?marque='+marque)
-            .then(function(response) {   //res => res.json()
+        function setMarques(m) {
+            fetch('http://10.3.4.21:8090/api/marques')
+            .then(function (response) {   //res => res.json()
                 return response.json();
             })
             .then(function (json) {
-                document.getElementById("modele").innerHTML = '';
-                for(var i in json) {
-                    var opt = document.createElement("option");
-                    var textOpt = document.createTextNode(json[i]);
-                    opt.value = json[i];
-                    opt.innerHTML = json[i];
+                console.log(json)
+                for (var i in json) {
+                    console.log(json[i].vehicleBrand);
+
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleBrand);
+                    opt.value = json[i].vehicleBrand;
+                    opt.innerHTML = json[i].vehicleBrand;
+                    if (json[i].vehicleBrand == m) {
+                        opt.setAttribute('selected', true);
+                    }
+                    document.getElementById("marque").appendChild(opt);
+                }
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+        }
+
+        function setModeles(marque, m) {
+            fetch('http://10.3.4.21:8090/api/modeles?marque=' + marque)
+            .then(function (response) {   //res => res.json()
+                return response.json();
+            })
+            .then(function (json) {
+                console.log(json)
+                for (var i in json) {
+                    console.log(json[i].vehicleBrand);
+
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleBrand);
+                    opt.value = json[i].vehicleBrand;
+                    opt.innerHTML = json[i].vehicleBrand;
+                    if (json[i].vehicleBrand == m) {
+                        opt.setAttribute('selected', true);
+                    }
                     document.getElementById("modele").appendChild(opt);
                 }
             })
-            .catch(function(err) {
+            .catch(function (err) {
                 console.error(err);
             });
         }

@@ -33,11 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         // Active ou déscative le csrl (si désactivé, plus besoin du champ hidden correspond dans la page de login
-        //http.csrf().disable();
-
-        http.authorizeRequests().antMatchers("/","index", "/fail", "fail2").permitAll()
+        http.csrf().disable();
+        http.authorizeRequests().anyRequest().permitAll();
+        //http.authorizeRequests().antMatchers("/*","index", "/fail", "fail2").permitAll();
                 //.antMatchers("/private/admin/**").hasRole("ROLE_ADMIN") // Si on souhaites restraindre l'URL pour le role ADMIN
-                .antMatchers("/private/**").fullyAuthenticated()    // l'accès aux URLs private/** sera restrainte à un utilisateur authentifié
+              /*  .antMatchers("/private/**").fullyAuthenticated()    // l'accès aux URLs private/** sera restrainte à un utilisateur authentifié
                 .and()
                 .formLogin()                        // utilisation du mode FormLogin pour l'authentification
                 .loginPage( "/login" )              // Définition d'une page custom pour le login (si non présent authomatiquement généré)
@@ -62,6 +62,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .sessionManagement()
                 .invalidSessionUrl( "/" )
                 .maximumSessions( 1 );
+                */
     }
 
     /**
