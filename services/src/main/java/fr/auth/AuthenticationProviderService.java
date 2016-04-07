@@ -36,17 +36,15 @@ public class AuthenticationProviderService implements AuthenticationProvider {
         return true;
     }
 
-    private Gson sendCredentialsToVertx(UserLogin userLogin){
-        Gson response = new Gson();
+    private Gson sendCredentialsToVertx(UserLogin userLogin) {
+        Gson response;
         RestTemplate restTemplate = new RestTemplate();
 
         try {
-            response = restTemplate.postForObject("http://localhost:8090/login", userLogin, Gson.class);
-        }catch (Exception e){
-            response.toJson(e);
-        }
-        finally {
+            response = restTemplate.postForObject("http://localhost:8090/api/login", userLogin, Gson.class);
             return response;
+        } catch (Exception e){
+            return new Gson();
         }
     }
 }

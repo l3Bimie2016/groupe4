@@ -5,20 +5,20 @@ package fr;
  */
 public class UserLogin {
 
-    private Object username;
+    private Object login;
     private Object password;
 
-    public UserLogin(Object username, Object password) {
-        this.username = username;
+    public UserLogin(Object login, Object password) {
+        this.login = login;
         this.password = password;
     }
 
-    public Object getUsername() {
-        return username;
+    public Object getLogin() {
+        return login;
     }
 
-    public void setUsername(Object username) {
-        this.username = username;
+    public void setLogin(Object login) {
+        this.login = login;
     }
 
     public Object getPassword() {
