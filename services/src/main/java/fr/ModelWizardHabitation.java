@@ -16,21 +16,17 @@ public class ModelWizardHabitation {
     private String nomDevis;
     private String user;
     private String typeHabitation;
-
     private Integer Surface;
     private Integer nbPieces;
-
     private String etage;
-
     private Integer nbSalleDeBain;
-
     private String garage;
-
     private Integer surfaceTerrain;
-
     private Integer surfaceTerasse;
-
     private String typeChauffage;
+
+    public ModelWizardHabitation() {
+    }
 
     private Integer step;
 
@@ -40,48 +36,6 @@ public class ModelWizardHabitation {
 
     public void setStep(Integer step) {
         this.step = step;
-    }
-
-
-
-
-
-
-    public Integer getSurfaceTerasse() {
-        return surfaceTerasse;
-    }
-
-    public void setSurfaceTerasse(Integer surfaceTerasse) {
-        this.surfaceTerasse = surfaceTerasse;
-    }
-
-    public String getTypeChauffage() {
-        return typeChauffage;
-    }
-
-    public void setTypeChauffage(String typeChauffage) {
-        this.typeChauffage = typeChauffage;
-    }
-
-    public String getEtage() {
-        return etage;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-
-    public Integer getSurfaceTerrain() {
-        return surfaceTerrain;
-    }
-
-    public void setSurfaceTerrain(Integer surfaceTerrain) {
-        surfaceTerrain = surfaceTerrain;
     }
 
     public Integer getIdDevis() {
