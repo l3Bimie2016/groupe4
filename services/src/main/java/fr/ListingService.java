@@ -11,18 +11,12 @@ import java.util.List;
  */
 @Service
 public class ListingService {
-
-    private QuotationVehicle devisVehicule = new QuotationVehicle();
-    private QuotationHome devisHome = new QuotationHome();
-    private String user;
     @Autowired
     private DevisHabitationRepository devisHabitationRepository;
 
 
-    public List<String> listDevis(String user) {
-        List<String> devis = new ArrayList();
-        this.devisHome = devisHabitationRepository.findByUserLogin(user);
-        res.add("Clio");
+    public List<QuotationHome> listDevis(String user) {
+        List<QuotationHome> devis = devisHabitationRepository.findByUserLogin(user);
         return devis;
     }
 

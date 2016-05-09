@@ -24,20 +24,9 @@
 
         <h3>Ass Hure 2000</h3>
 
-        <form:form method="post" action="/devis/selection" modelAttribute="modelWizardListing">
-            <p>
-                <label for="listingDevis">Type d'habitation :</label>
-                <form:select path="listingDevis" id="listingDevis" >
-                    <form:option value="Maison"></form:option>
-                </form:select>
-
-                <br /><br />
-                <input type="submit" value="Etape suivante" />
-
-                <br /><br />
-                <a href="/"><input type="button" value="Annuler" /></a>
-            </p>
-        </form:form>
+        <c:forEach var="quote" items="${listingDevis}">
+            <a><c:out value="${quote.quotHName}"></c:out></a>
+        </c:forEach>
 
     </body>
 </html>
