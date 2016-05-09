@@ -45,6 +45,26 @@ public class ModelWizardVehicule {
 
     private String type;
 
+    private Integer step;
+
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
+    public String getDortDasnsGarage() {
+        return dortDasnsGarage;
+    }
+
+    public void setDortDasnsGarage(String dortDasnsGarage) {
+        this.dortDasnsGarage = dortDasnsGarage;
+    }
+
+
+
 
 
     public String getType() {

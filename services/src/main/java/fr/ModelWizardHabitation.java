@@ -32,6 +32,16 @@ public class ModelWizardHabitation {
 
     private String typeChauffage;
 
+    private Integer step;
+
+    public Integer getStep() {
+        return step;
+    }
+
+    public void setStep(Integer step) {
+        this.step = step;
+    }
+
 
 
 
