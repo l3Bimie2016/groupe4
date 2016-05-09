@@ -71,7 +71,7 @@ public class HabitationController {
     @RequestMapping("/devis/habitation/etape4")
     public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
         ModelAndView step4 = new ModelAndView("/devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
-        return step4;
+        return step4    ;
     }
 
 }

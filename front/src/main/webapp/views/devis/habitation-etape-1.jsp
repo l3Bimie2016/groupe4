@@ -29,10 +29,7 @@
 
                 <br />
                 <label for="typeHabitation">Type d'habitation :</label>
-                <form:select path="typeHabitation" id="typeHabitation" >
-                    <form:option value="Maison"></form:option>
-                    <form:option value="Appartement"></form:option>
-                </form:select>
+                <form:select path="typeHabitation" id="typeHabitation" ></form:select>
 
                 <br />
                 <label for="surface">Surface :</label>
@@ -45,6 +42,42 @@
                 <a href="/"><input type="button" value="Annuler" /></a>
             </p>
         </form:form>
+
+        <script>
+            "use strict";
+
+            var databaseIP = '10.3.5.19';
+
+            console.log("${modelWizardHabitation.nomDevis}")
+
+            setTypeHabitation("${modelWizardHabitation.typeHabitation}");
+
+            function setTypeHabitation(m) {
+                fetch('http://'+ databaseIP +':8090/api/homeType')
+                        .then(function (response) {   //res => res.json()
+                            return response.json();
+                        })
+                        .then(function (json) {
+                            for (var i in json) {
+                                /*if(i == 0 && "${modelWizardHabitation.typeHabitation}" == '') {
+                                    setModeles(json[i].vehicleBrand, "");
+                                }*/
+                                let opt = document.createElement("option");
+                                const textOpt = document.createTextNode(json[i].homeTypeName);
+                                opt.value = json[i].homeTypeName;
+                                opt.innerHTML = json[i].homeTypeName;
+                                if (json[i].homeTypeName == m) {
+                                    opt.setAttribute('selected', true);
+                                }
+                                document.getElementById("typeHabitation").appendChild(opt);
+                            }
+                        })
+                        .catch(function (err) {
+                            console.error(err);
+                        });
+            }
+
+        </script>
 
     </body>
 </html>
