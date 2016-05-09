@@ -62,4 +62,16 @@ public class HabitationController {
         return step2;
     }
 
+    @RequestMapping("/devis/habitation/etape3")
+    public ModelAndView step3(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
+        ModelAndView step3 = new ModelAndView("/devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
+        return step3;
+    }
+
+    @RequestMapping("/devis/habitation/etape4")
+    public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
+        ModelAndView step4 = new ModelAndView("/devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
+        return step4;
+    }
+
 }

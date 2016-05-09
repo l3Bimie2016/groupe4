@@ -24,7 +24,7 @@ public class WizardToQuotation {
             homeGarage = 0;
         }
         private Double homeGardenSurface = (double) modelWizardHabitation.getSurfaceTerrain();
-        private Double homeTerraceSurface = (double) modelWizardHabitation.getSurfaceTerrasse();
+        private Double homeTerraceSurface = (double) modelWizardHabitation.getSurfaceTerasse();
         private Double priceAssHome = modelWizardHabitation.getTarif();
         private String userLogin = modelWizardHabitation.getUser();
         private String homeHeater;

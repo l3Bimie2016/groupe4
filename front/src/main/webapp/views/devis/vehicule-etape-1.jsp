@@ -60,6 +60,19 @@
 
         setMarques("${modelWizardVehicule.marque}");
 
+        let marque = document.getElementById("marque").value;
+        setModeles(marque, "${modelWizardVehicule.modele}");
+
+
+
+        document.getElementById("marque").addEventListener("change", function(){
+            let marque = document.getElementById("marque").value;
+
+            setModeles(marque, "");
+        });
+
+
+
         function setMarques(m) {
             fetch('http://10.3.4.21:8090/api/marques')
             .then(function (response) {   //res => res.json()
@@ -85,39 +98,30 @@
             });
         }
 
-            let marque = document.getElementById("marque").value;
-            //setMarques(marque, "${modelWizardVehicule.modele}");
-
-            /*document.getElementById("marque").addEventListener("change", function(){
-                let marque = document.getElementById("marque").value;
-
-                setMarques(marque, "${modelWizardVehicule.modele}");
-            });*/
-
-
-
-        /*function setModele(modele, m) {
-            fetch('http://localhost:8080/api/modeles?marque='+modele)
-            .then(function(response) {   //res => res.json()
+        function setModeles(marque, m) {
+            fetch('http://10.3.4.21:8090/api/modeles?marque=' + marque)
+            .then(function (response) {   //res => res.json()
                 return response.json();
             })
             .then(function (json) {
-                document.getElementById("modele").innerHTML = '';
-                for(var i in json) {
-                    var opt = document.createElement("option");
-                    var textOpt = document.createTextNode(json[i]);
-                    opt.value = json[i];
-                    opt.innerHTML = json[i];
-                    if(json[i] == m) {
+                console.log(json)
+                for (var i in json) {
+                    console.log(json[i].vehicleBrand);
+
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleBrand);
+                    opt.value = json[i].vehicleBrand;
+                    opt.innerHTML = json[i].vehicleBrand;
+                    if (json[i].vehicleBrand == m) {
                         opt.setAttribute('selected', true);
                     }
                     document.getElementById("modele").appendChild(opt);
                 }
             })
-            .catch(function(err) {
+            .catch(function (err) {
                 console.error(err);
             });
-        }*/
+        }
 
     </script>
 

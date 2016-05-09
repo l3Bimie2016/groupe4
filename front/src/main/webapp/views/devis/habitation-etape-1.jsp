@@ -36,7 +36,7 @@
 
                 <br />
                 <label for="surface">Surface :</label>
-                <form:select path="surface" id="surface" ></form:select>
+                <form:input path="surface" id="surface" type="number" min="0" value="0"></form:input>
 
                 <br /><br />
                 <input type="submit" value="Etape suivante" />

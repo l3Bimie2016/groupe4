@@ -161,7 +161,7 @@ public class QuotationHome {
         return homeNote;
     }
 
-    public void setHomeNote(String homeNote) {this.homeNote = homeNote;
+    public void setHomeNote(String homeNote) {this.homeNote = homeNote;}
 
 
     @ManyToOne

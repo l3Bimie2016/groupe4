@@ -18,8 +18,6 @@ public class ModelWizardHabitation {
     private String typeHabitation;
 
     private Integer Surface;
-    private Integer SurfaceTerrain;
-    private Integer SurfaceTerrasse;
     private Integer nbPieces;
 
     private String etage;
@@ -28,8 +26,41 @@ public class ModelWizardHabitation {
 
     private String garage;
 
+    private Integer surfaceTerrain;
+
+    private Integer surfaceTerasse;
+
+    private String typeChauffage;
 
 
+
+
+
+
+
+    public Integer getSurfaceTerrain() {
+        return surfaceTerrain;
+    }
+
+    public void setSurfaceTerrain(Integer surfaceTerrain) {
+        this.surfaceTerrain = surfaceTerrain;
+    }
+
+    public Integer getSurfaceTerasse() {
+        return surfaceTerasse;
+    }
+
+    public void setSurfaceTerasse(Integer surfaceTerasse) {
+        this.surfaceTerasse = surfaceTerasse;
+    }
+
+    public String getTypeChauffage() {
+        return typeChauffage;
+    }
+
+    public void setTypeChauffage(String typeChauffage) {
+        this.typeChauffage = typeChauffage;
+    }
 
     public String getEtage() {
         return etage;
@@ -43,13 +74,6 @@ public class ModelWizardHabitation {
         this.user = user;
     }
 
-    public Integer getSurfaceTerrasse() {
-        return SurfaceTerrasse;
-    }
-
-    public void setSurfaceTerrasse(Integer surfaceTerrasse) {
-        SurfaceTerrasse = surfaceTerrasse;
-    }
 
     public Integer getSurfaceTerrain() {
         return SurfaceTerrain;

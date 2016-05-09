@@ -19,13 +19,14 @@
         <title>Devis Habitation - Etape 2</title>
     </head>
     <body>
-        <h1>Devis d'habitation</h1>
-        <h2>Etape 2</h2>
+    <h1>Devis d'habitation | Etape 2/4</h1>
+
+    <h3>Nicolas Melin</h3>
 
         <form:form method="post" action="/devis/habitation/etape3" modelAttribute="modelWizardHabitation">
             <p>
                 <label for="nbPieces">Nombre de pièce(s) :</label>
-                <form:input path="nbPieces" type="number" id="nbPieces" min="1" step="1" ></form:input>
+                <form:input path="nbPieces" type="number" id="nbPieces" min="0" step="1" value="0"></form:input>
 
                 <br id="brEtage" />
                 <label for="etage" id="etageLabel">Etage :</label>
@@ -36,7 +37,7 @@
 
                 <br />
                 <label for="nbSalleDeBain">Nombre de salle de bain :</label>
-                <form:input path="nbSalleDeBain" id="nbSalleDeBain" type="number" min="0" step="1"></form:input>
+                <form:input path="nbSalleDeBain" id="nbSalleDeBain" type="number" min="0" step="1" value="0"></form:input>
 
                 <br />
                 <label for="garage">Garage :</label>
