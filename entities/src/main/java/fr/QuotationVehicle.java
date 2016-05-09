@@ -14,7 +14,7 @@ public class QuotationVehicle {
     private String userDriverLicense;
     private Integer userNbAccident;
     private Double userBonus;
-    private Byte vehicleShed;
+    private Integer vehicleShed;
     private String vehicleFirstDriver;
     private String vehicleSecondDriver;
 
@@ -98,11 +98,11 @@ public class QuotationVehicle {
 
     @Basic
     @Column(name = "vehicleShed", nullable = true)
-    public Byte getVehicleShed() {
+    public Integer getVehicleShed() {
         return vehicleShed;
     }
 
-    public void setVehicleShed(Byte vehicleShed) {
+    public void setVehicleShed(Integer vehicleShed) {
         this.vehicleShed = vehicleShed;
     }
 

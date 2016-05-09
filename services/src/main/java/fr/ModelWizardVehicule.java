@@ -44,7 +44,7 @@ public class ModelWizardVehicule {
     private String adresse;
 
     private String type;
-
+    private Integer step;
 
 
     public String getType() {
@@ -151,33 +151,14 @@ public class ModelWizardVehicule {
         return carburant;
     }
 
-    private String step1;
-    private String step2;
-    private String step3;
-
-    public String getStep1() {
-        return step1;
+    public Integer getStep() {
+        return step;
     }
 
-    public void setStep1(String step1) {
-        this.step1 = step1;
+    public void setStep(Integer step) {
+        this.step = step;
     }
 
-    public String getStep2() {
-        return step2;
-    }
-
-    public void setStep2(String step2) {
-        this.step2 = step2;
-    }
-
-    public String getStep3() {
-        return step3;
-    }
-
-    public void setStep3(String step3) {
-        this.step3 = step3;
-    }
 
     public String getNomDevis() {
         return nomDevis;
