@@ -37,15 +37,6 @@ public class ModelWizardHabitation {
 
 
 
-
-    public Integer getSurfaceTerrain() {
-        return surfaceTerrain;
-    }
-
-    public void setSurfaceTerrain(Integer surfaceTerrain) {
-        this.surfaceTerrain = surfaceTerrain;
-    }
-
     public Integer getSurfaceTerasse() {
         return surfaceTerasse;
     }
@@ -76,11 +67,11 @@ public class ModelWizardHabitation {
 
 
     public Integer getSurfaceTerrain() {
-        return SurfaceTerrain;
+        return surfaceTerrain;
     }
 
     public void setSurfaceTerrain(Integer surfaceTerrain) {
-        SurfaceTerrain = surfaceTerrain;
+        surfaceTerrain = surfaceTerrain;
     }
 
     public Integer getIdDevis() {
