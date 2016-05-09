@@ -16,45 +16,32 @@ public class ModelWizardHabitation {
     private String nomDevis;
     private String user;
     private String typeHabitation;
-
     private Integer Surface;
     private Integer nbPieces;
-
     private String etage;
-
     private Integer nbSalleDeBain;
-
     private String garage;
-
     private Integer surfaceTerrain;
-
     private Integer surfaceTerasse;
-
     private String typeChauffage;
 
-
-
-
-
-
-    public Integer getSurfaceTerasse() {
-        return surfaceTerasse;
+    public ModelWizardHabitation() {
     }
 
-    public void setSurfaceTerasse(Integer surfaceTerasse) {
-        this.surfaceTerasse = surfaceTerasse;
+    public Integer getIdDevis() {
+        return idDevis;
     }
 
-    public String getTypeChauffage() {
-        return typeChauffage;
+    public void setIdDevis(Integer idDevis) {
+        this.idDevis = idDevis;
     }
 
-    public void setTypeChauffage(String typeChauffage) {
-        this.typeChauffage = typeChauffage;
+    public String getNomDevis() {
+        return nomDevis;
     }
 
-    public String getEtage() {
-        return etage;
+    public void setNomDevis(String nomDevis) {
+        this.nomDevis = nomDevis;
     }
 
     public String getUser() {
@@ -65,21 +52,32 @@ public class ModelWizardHabitation {
         this.user = user;
     }
 
-
-    public Integer getSurfaceTerrain() {
-        return surfaceTerrain;
+    public String getTypeHabitation() {
+        return typeHabitation;
     }
 
-    public void setSurfaceTerrain(Integer surfaceTerrain) {
-        surfaceTerrain = surfaceTerrain;
+    public void setTypeHabitation(String typeHabitation) {
+        this.typeHabitation = typeHabitation;
     }
 
-    public Integer getIdDevis() {
-        return idDevis;
+    public Integer getSurface() {
+        return Surface;
     }
 
-    public void setIdDevis(Integer idDevis) {
-        this.idDevis = idDevis;
+    public void setSurface(Integer surface) {
+        Surface = surface;
+    }
+
+    public Integer getNbPieces() {
+        return nbPieces;
+    }
+
+    public void setNbPieces(Integer nbPieces) {
+        this.nbPieces = nbPieces;
+    }
+
+    public String getEtage() {
+        return etage;
     }
 
     public void setEtage(String etage) {
@@ -102,40 +100,27 @@ public class ModelWizardHabitation {
         this.garage = garage;
     }
 
-    public Integer getNbPieces() {
-        return nbPieces;
+    public Integer getSurfaceTerrain() {
+        return surfaceTerrain;
     }
 
-    public void setNbPieces(Integer nbPieces) {
-        this.nbPieces = nbPieces;
+    public void setSurfaceTerrain(Integer surfaceTerrain) {
+        this.surfaceTerrain = surfaceTerrain;
     }
 
-    public void setSurface(Integer surface) {
-        Surface = surface;
+    public Integer getSurfaceTerasse() {
+        return surfaceTerasse;
     }
 
-    public void setNomDevis(String nomDevis) {
-        this.nomDevis = nomDevis;
+    public void setSurfaceTerasse(Integer surfaceTerasse) {
+        this.surfaceTerasse = surfaceTerasse;
     }
 
-    public void setTypeHabitation(String typeHabitation) {
-        this.typeHabitation = typeHabitation;
+    public String getTypeChauffage() {
+        return typeChauffage;
     }
 
-
-
-    public Integer getSurface() {
-        return Surface;
+    public void setTypeChauffage(String typeChauffage) {
+        this.typeChauffage = typeChauffage;
     }
-
-    public String getNomDevis() {
-        return nomDevis;
-    }
-
-    public String getTypeHabitation() {
-        return typeHabitation;
-    }
-
-
-
 }
