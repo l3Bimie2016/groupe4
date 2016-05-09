@@ -1,16 +1,23 @@
 package fr;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by nicol on 07/04/2016.
  */
 public class ModelWizardHabitation {
 
-    private String nomDevis;
 
+    @NotEmpty
+    @NotNull
+    private Integer idDevis;
+    private String nomDevis;
+    private String user;
     private String typeHabitation;
 
     private Integer Surface;
-
     private Integer nbPieces;
 
     private String etage;
@@ -57,6 +64,31 @@ public class ModelWizardHabitation {
 
     public String getEtage() {
         return etage;
+    }
+
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
+
+    public Integer getSurfaceTerrain() {
+        return SurfaceTerrain;
+    }
+
+    public void setSurfaceTerrain(Integer surfaceTerrain) {
+        SurfaceTerrain = surfaceTerrain;
+    }
+
+    public Integer getIdDevis() {
+        return idDevis;
+    }
+
+    public void setIdDevis(Integer idDevis) {
+        this.idDevis = idDevis;
     }
 
     public void setEtage(String etage) {
