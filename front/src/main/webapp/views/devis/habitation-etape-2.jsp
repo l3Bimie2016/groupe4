@@ -21,9 +21,7 @@
     <body>
     <h1>Devis d'habitation | Etape 2/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
-        <form:form method="post" action="/devis/habitation/etape3" modelAttribute="modelWizardHabitation">
+        <form:form method="post" action="/private/devis/habitation/etape3" modelAttribute="modelWizardHabitation">
             <p>
                 <label for="nbPieces">Nombre de pièce(s) :</label>
                 <form:input path="nbPieces" type="number" id="nbPieces" min="0" step="1" value="0"></form:input>
@@ -47,7 +45,7 @@
                 </form:select>
 
                 <br /><br />
-                <a href="/back/devis/habitation/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+                <a href="/private/back/devis/habitation/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
                 <br /><br />
                 <a href="/"><input type="button" value="Annuler" /></a>

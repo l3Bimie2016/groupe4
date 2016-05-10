@@ -35,7 +35,7 @@ public class VehiculeController {
     }
 
 
-    @RequestMapping("/devis/vehicule/etape1")
+    @RequestMapping("/private/devis/vehicule/etape1")
     public ModelAndView step1(Map<String, Object> model) {
         //User user = new User("Nicolas", "Melin", "Nico", "nicowd");
         //model.put("user", user);
@@ -43,12 +43,12 @@ public class VehiculeController {
         //return "devis/vehicule-etape-1";
     }
 
-    @RequestMapping("/back/devis/vehicule/etape1")
+    @RequestMapping("/private/back/devis/vehicule/etape1")
     public ModelAndView backStep1(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", modelWizardVehicule);
     }
 
-    @RequestMapping("/devis/vehicule/etape2")
+    @RequestMapping("/private/devis/vehicule/etape2")
     public ModelAndView step2(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         //System.out.println("Step2");
 
@@ -70,7 +70,7 @@ public class VehiculeController {
         }
     }
 
-    @RequestMapping("/devis/vehicule/etape3")
+    @RequestMapping("/private/devis/vehicule/etape3")
     public ModelAndView step3(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         System.out.println("step 3 : " + bindingResult.getErrorCount());
         modelWizardVehicule.setStep(2);
@@ -85,7 +85,7 @@ public class VehiculeController {
         }
     }
 
-    @RequestMapping("/devis/vehicule/etape4")
+    @RequestMapping("/private/devis/vehicule/etape4")
     public ModelAndView step4(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         modelWizardVehicule.setStep(3);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
@@ -100,7 +100,7 @@ public class VehiculeController {
         }
     }
 
-    @RequestMapping("/devis/vehicule/success")
+    @RequestMapping("/private/devis/vehicule/success")
     public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         modelWizardVehicule.setStep(4);
         System.out.println("step 4 : " + bindingResult.getErrorCount());

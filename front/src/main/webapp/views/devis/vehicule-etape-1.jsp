@@ -17,9 +17,7 @@
 <body>
     <h1>Devis véhicule | Etape 1/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
-    <form:form method="post" action="/devis/vehicule/etape2" modelAttribute="modelWizardVehicule">
+    <form:form method="post" action="/private/devis/vehicule/etape2" modelAttribute="modelWizardVehicule">
         <p>
             <label for="nomDevis">Nom du devis :</label>
             <form:input path="nomDevis" id="nomDevis"></form:input>

@@ -21,9 +21,7 @@
     <body>
     <h1>Devis d'habitation | Etape 3/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
-        <form:form method="post" action="/devis/habitation/etape4" modelAttribute="modelWizardHabitation">
+        <form:form method="post" action="/private/devis/habitation/etape4" modelAttribute="modelWizardHabitation">
             <p>
                 <label for="surfaceTerrain">Surface du terrain :</label>
                 <form:input path="surfaceTerrain" type="number" id="surfaceTerrain" min="0" step="1" value="0"></form:input>
@@ -41,7 +39,7 @@
                 </form:select>
 
                 <br /><br />
-                <a href="/devis/habitation/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+                <a href="/private/devis/habitation/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
                 <br /><br />
                 <a href="/"><input type="button" value="Annuler" /></a>

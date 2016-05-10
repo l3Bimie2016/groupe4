@@ -21,8 +21,6 @@
     <body>
     <h1>Devis d'habitation | Etape 4/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
     <h1>Résumé du devis :</h1>
 
     <p style="font-size: 25px"><span style="font-weight: bold">Nom du devis :</span> ${modelWizardHabitation.nomDevis}</p>
@@ -34,11 +32,11 @@
     <p style="font-size: 25px"><span style="font-weight: bold">Surface de la terrasse : </span> ${modelWizardHabitation.surfaceTerrain} m²</p>
     <p style="font-size: 25px"><span style="font-weight: bold">Type de chauffage : </span> ${modelWizardHabitation.typeChauffage}</p>
 
-        <form:form method="post" action="/devis/habitation/success" modelAttribute="modelWizardHabitation">
+        <form:form method="post" action="/private/devis/habitation/success" modelAttribute="modelWizardHabitation">
             <p>
 
                 <br /><br />
-                <a href="/devis/habitation/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+                <a href="/private/devis/habitation/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
                 <br /><br />
                 <a href="/"><input type="button" value="Annuler" /></a>

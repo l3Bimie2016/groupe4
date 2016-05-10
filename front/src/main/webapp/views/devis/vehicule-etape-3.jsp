@@ -14,9 +14,7 @@
 <body>
     <h1>Devis véhicule | Etape 3/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
-    <form:form method="post" action="/devis/vehicule/etape4" modelAttribute="modelWizardVehicule">
+    <form:form method="post" action="/private/devis/vehicule/etape4" modelAttribute="modelWizardVehicule">
         <p>
             <label for="conducteurPrincipal">Conducteur principal :</label>
             <form:input path="conducteurPrincipal" id="conducteurPrincipal"></form:input>
@@ -37,7 +35,7 @@
             <form:input path="adresse"></form:input>
 
             <br /><br />
-            <a href="/devis/vehicule/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+            <a href="/private/devis/vehicule/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
             <br /><br />
             <a href="/"><input type="button" value="Annuler" /></a>

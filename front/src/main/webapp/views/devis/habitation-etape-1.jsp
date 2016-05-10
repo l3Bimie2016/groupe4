@@ -20,9 +20,7 @@
     <body>
         <h1>Devis d'habitation | Etape 1/4</h1>
 
-        <h3>Nicolas Melin</h3>
-
-        <form:form method="post" action="/devis/habitation/etape2" modelAttribute="modelWizardHabitation">
+        <form:form method="post" action="/private/devis/habitation/etape2" modelAttribute="modelWizardHabitation">
             <p>
                 <label for="nomDevis">Nom du devis :</label>
                 <form:input path="nomDevis" id="nomDevis"></form:input>

@@ -16,9 +16,7 @@
 <body>
     <h1>Devis véhicule | Etape 2/4</h1>
 
-    <h3>Nicolas Melin</h3>
-
-    <form:form method="post" action="/devis/vehicule/etape3" modelAttribute="modelWizardVehicule">
+    <form:form method="post" action="/private/devis/vehicule/etape3" modelAttribute="modelWizardVehicule">
         <p>
             <label for="datePermis">Date de permis :</label>
             <form:input path="datePermis" type="date" id="datePermis"></form:input>
@@ -32,7 +30,7 @@
             <form:input path="bonusMalus"  id="bonusMalus" step="0.01" value="1" min="0.50" max="50"></form:input>
 
             <br /><br />
-            <a href="/back/devis/vehicule/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+            <a href="/private/back/devis/vehicule/etape1"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
             <br /><br />
             <a href="/"><input type="button" value="Annuler" /></a>

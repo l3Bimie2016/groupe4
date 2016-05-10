@@ -2,7 +2,9 @@ package controller;
 
 import fr.ModelWizardHabitation;
 import fr.ModelWizardVehicule;
+import fr.SessionData;
 import fr.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -24,7 +26,10 @@ import java.util.Map;
 @SessionAttributes("modelWizardHabitation")
 public class HabitationController {
 
-    @RequestMapping(value = "/devis/habitation/etape1", method = RequestMethod.GET)
+    @Autowired
+    private SessionData modelUser;
+
+    @RequestMapping(value = "/private/devis/habitation/etape1", method = RequestMethod.GET)
     public ModelAndView step1(Map<String, Object> model) {
         //todo get connected user
         /*User userTest = new User();
@@ -51,29 +56,29 @@ public class HabitationController {
 
     }
 
-    @RequestMapping("/back/devis/habitation/etape1")
+    @RequestMapping("/private/back/devis/habitation/etape1")
     public ModelAndView backStep1(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
         return new ModelAndView("devis/habitation-etape-1", "modelWizardHabitation", modelWizardHabitation);
     }
 
-    @RequestMapping("/devis/habitation/etape2")
+    @RequestMapping("/private/devis/habitation/etape2")
     public ModelAndView step2(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
         modelWizardHabitation.setStep(1);
-        ModelAndView step2 = new ModelAndView("/devis/habitation-etape-2", "modelWizardHabitation", modelWizardHabitation);
+        ModelAndView step2 = new ModelAndView("devis/habitation-etape-2", "modelWizardHabitation", modelWizardHabitation);
         return step2;
     }
 
-    @RequestMapping("/devis/habitation/etape3")
+    @RequestMapping("/private/devis/habitation/etape3")
     public ModelAndView step3(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
         modelWizardHabitation.setStep(2);
-        ModelAndView step3 = new ModelAndView("/devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
+        ModelAndView step3 = new ModelAndView("devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
         return step3;
     }
 
-    @RequestMapping("/devis/habitation/etape4")
+    @RequestMapping("/private/devis/habitation/etape4")
     public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
         modelWizardHabitation.setStep(3);
-        ModelAndView step4 = new ModelAndView("/devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
+        ModelAndView step4 = new ModelAndView("devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
         return step4    ;
     }
 
