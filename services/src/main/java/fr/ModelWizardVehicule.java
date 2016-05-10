@@ -3,7 +3,6 @@ package fr;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  * Created by nicol on 06/04/2016.
@@ -35,11 +34,11 @@ public class ModelWizardVehicule {
     private String conducteurSecondaire;
     private String dortDasnsGarage;
     private String adresse;
-    private String type;
+    private Integer type;
     private Integer step;
 
 
-    public String getType() {
+    public Integer getType() {
         return type;
     }
     public Integer getIdDevis() {
@@ -48,7 +47,7 @@ public class ModelWizardVehicule {
     public void setIdDevis(Integer idDevis) {
         this.idDevis = idDevis;
     }
-    public void setType(String type) {
+    public void setType(Integer type) {
         this.type = type;
     }
     public String getConducteurPrincipal() {

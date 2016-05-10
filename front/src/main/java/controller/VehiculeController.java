@@ -29,9 +29,6 @@ public class VehiculeController {
     @Autowired
     private DevisVehiculeRepository devisVehiculeRepository;
 
-    @Autowired
-    private QuotationVehicle quotationVehicle;
-
     @InitBinder
     public void initBinderUser(WebDataBinder binder){
         binder.setValidator(vehiculeValidator);
@@ -97,9 +94,11 @@ public class VehiculeController {
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/successDevisVehicule");
 
-            quotationVehicle = new WizardToEntity(modelWizardVehicule).toEntity();
-
+            QuotationVehicle quotationVehicle = new WizardToEntity(modelWizardVehicule).toEntity();
+            // @TODO : Blaise : Userlogin Session
+            quotationVehicle.setUserLogin("user2");
             devisVehiculeRepository.save(quotationVehicle);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);

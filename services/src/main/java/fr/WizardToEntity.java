@@ -10,7 +10,9 @@ public class WizardToEntity {
 
     public QuotationVehicle toEntity(){
         QuotationVehicle quotationVehicle = new QuotationVehicle();
-        //getType()
+        VehiculeContractType vehiculeContractType = new VehiculeContractType();
+        vehiculeContractType.setVehicleContractId(modelWizardVehicule.getType());
+        quotationVehicle.setVehicleContractType(vehiculeContractType);
         quotationVehicle.setQuotVid(modelWizardVehicule.getIdDevis());
         quotationVehicle.setVehicleFirstDriver(modelWizardVehicule.getConducteurPrincipal());
         quotationVehicle.setVehicleSecondDriver(modelWizardVehicule.getConducteurSecondaire());

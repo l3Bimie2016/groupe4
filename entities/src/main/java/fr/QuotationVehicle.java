@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 public class QuotationVehicle {
-    private int quotVid;
+    private Integer quotVid;
     private String quotVName;
     private Double priceAssVehicle;
     private Integer quotStep;
@@ -28,11 +28,11 @@ public class QuotationVehicle {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quotVID", nullable = false)
-    public int getQuotVid() {
+    public Integer getQuotVid() {
         return quotVid;
     }
 
-    public void setQuotVid(int quotVid) {
+    public void setQuotVid(Integer quotVid) {
         this.quotVid = quotVid;
     }
 
