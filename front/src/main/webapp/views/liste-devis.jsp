@@ -24,12 +24,12 @@
 
 <h4>Devis Habitat</h4>
 <c:forEach var="quote" items="${devisHome}">
-    <a><c:out value="${quote.quotHName}"></c:out></a>
+    <p><a href="" target="_blank"><c:out value="${quote.quotHName}"></c:out></a></p>
 </c:forEach>
 
 <h4>Devis Véhicule</h4>
 <c:forEach var="quote" items="${devisVehicle}">
-    <a><c:out value="${quote.quotVName}"></c:out></a>
+    <p><a href="" target="_blank"><c:out value="${quote.quotVName}"></c:out></a></p>
 </c:forEach>
 
 </body>
