@@ -10,8 +10,8 @@ import javax.validation.constraints.NotNull;
 public class ModelWizardHabitation {
 
 
-    @NotEmpty
-    @NotNull
+    /*@NotEmpty
+    @NotNull*/
     private Integer idDevis;
     private String nomDevis;
     private String user;
@@ -48,6 +48,9 @@ public class ModelWizardHabitation {
 
     public void setEtage(String etage) {
         this.etage = etage;
+    }
+    public String getEtage() {
+        return etage;
     }
 
     public Integer getNbSalleDeBain() {
