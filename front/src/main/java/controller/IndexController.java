@@ -39,10 +39,12 @@ public class IndexController {
     @RequestMapping({"/","/index"})
     public String welcome(Map<String, Object> model) {
         String m = message;
+        Boolean isLogin = false;
 
         UserVertx uv = modelUser.getUser();
 
         if(uv != null) {
+            isLogin = true;
             m = "Bonjour "+uv.getUserFirstName()+' '+uv.getUserLastName();
         }
 
@@ -52,6 +54,7 @@ public class IndexController {
             //m = String.format("Hello %s", user.getUsername());
         }
         model.put("message", m);
+        model.put("isLogin", isLogin);
         return "index";
     }
 
