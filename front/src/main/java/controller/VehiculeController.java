@@ -1,6 +1,9 @@
 package controller;
 
+import fr.DevisVehiculeRepository;
 import fr.ModelWizardVehicule;
+import fr.QuotationVehicle;
+import fr.WizardToEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,6 +25,9 @@ public class VehiculeController {
 
     @Autowired
     private VehiculeValidator vehiculeValidator;
+
+    @Autowired
+    private DevisVehiculeRepository devisVehiculeRepository;
 
     @InitBinder
     public void initBinderUser(WebDataBinder binder){
@@ -88,8 +94,15 @@ public class VehiculeController {
     public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         modelWizardVehicule.setStep(4);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
+
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/successDevisVehicule");
+
+            QuotationVehicle quotationVehicle = new WizardToEntity(modelWizardVehicule).toEntity();
+            // @TODO : Blaise : Userlogin Session
+            quotationVehicle.setUserLogin("user2");
+            devisVehiculeRepository.save(quotationVehicle);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);

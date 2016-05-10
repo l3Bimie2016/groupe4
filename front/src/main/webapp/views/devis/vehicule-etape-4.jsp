@@ -36,8 +36,8 @@
             <br />
             <label for="type">Type :</label>
             <form:select path="type">
-                <form:option value="toutrisque"></form:option>
-                <form:option value="tiers"></form:option>
+                <form:option value="1">Tous risques</form:option>
+                <form:option value="2">Tier</form:option>
             </form:select>
 
             <br /><br />
