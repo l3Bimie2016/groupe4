@@ -67,9 +67,9 @@ DROP TABLE IF EXISTS `QuotationVehicle`;
 CREATE TABLE IF NOT EXISTS `QuotationVehicle` (
   `quotVID` int(11) NOT NULL AUTO_INCREMENT,
   `quotVName` varchar(50) DEFAULT NULL,
-  `priceAssVehicle` float DEFAULT NULL,
+  `datePermis` float DEFAULT NULL,
   `quotStep` int(11) DEFAULT NULL,
-  `userDriverLicense` varchar(10) DEFAULT NULL,
+  `userAddress` varchar(10) DEFAULT NULL,
   `userNbAccident` int(11) DEFAULT NULL,
   `userBonus` float DEFAULT NULL,
   `vehicleShed` tinyint(1) DEFAULT NULL,
@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `QuotationVehicle` (
 -- Export de données de la table groupe4Spring.QuotationVehicle : ~2 rows (environ)
 DELETE FROM `QuotationVehicle`;
 /*!40000 ALTER TABLE `QuotationVehicle` DISABLE KEYS */;
-INSERT INTO `QuotationVehicle` (`quotVID`, `quotVName`, `priceAssVehicle`, `quotStep`, `userDriverLicense`, `userNbAccident`, `userBonus`, `vehicleShed`, `vehicleFirstDriver`, `vehiculeSecondDriver`, `vehicleContractID`, `userLogin`) VALUES
+INSERT INTO `QuotationVehicle` (`quotVID`, `quotVName`, `datePermis`, `quotStep`, `userAddress`, `userNbAccident`, `userBonus`, `vehicleShed`, `vehicleFirstDriver`, `vehiculeSecondDriver`, `vehicleContractID`, `userLogin`) VALUES
 	(1, 'Devis1', 250, 2, '1234569A', 2, 0.32, 1, 'Madame', 'Monsieur', 2, 'user'),
 	(3, 'Devis2', 350, 3, '1235AZE', 1, 0.56, 0, 'Monsieur', 'Madame', 1, 'user2');
 /*!40000 ALTER TABLE `QuotationVehicle` ENABLE KEYS */;

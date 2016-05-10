@@ -14,7 +14,7 @@ public class VehiculeContractType {
     private String vehicleContract;
 
     @Id
-    @Column(name = "vehicleContractID", nullable = false)
+    @Column(name = "vehicleContractID")
     public Integer getVehicleContractId() {
         return vehicleContractId;
     }
@@ -24,7 +24,7 @@ public class VehiculeContractType {
     }
 
     @Basic
-    @Column(name = "vehicleContract", nullable = true, length = 20)
+    @Column(name = "vehicleContract", length = 20)
     public String getVehicleContract() {
         return vehicleContract;
     }
