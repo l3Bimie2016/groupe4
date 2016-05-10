@@ -5,27 +5,31 @@ package fr;
  */
 public class UserLogin {
 
-    private Object login;
-    private Object password;
+    private String login;
+    private String password;
 
-    public UserLogin(Object login, Object password) {
+    public UserLogin(String login, String password) {
         this.login = login;
         this.password = password;
     }
 
-    public Object getLogin() {
+    public UserLogin(){
+
+    }
+
+    public String getLogin() {
         return login;
     }
 
-    public void setLogin(Object login) {
+    public void setLogin(String login) {
         this.login = login;
     }
 
-    public Object getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(Object password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 }

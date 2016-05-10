@@ -1,12 +1,14 @@
 package fr.auth;
 
-import com.google.gson.Gson;
 import fr.SessionData;
 import fr.UserLogin;
+import fr.VertxResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
@@ -19,16 +21,23 @@ public class AuthenticationProviderService implements AuthenticationProvider {
     @Autowired
     private SessionData sessionData;
 
+    private String vertxUrl = "10.3.5.19:8090";
+
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
-        UserLogin userLogin = new UserLogin(authentication.getPrincipal(), authentication.getCredentials());
+        UserLogin userLogin = new UserLogin((String)authentication.getPrincipal(), (String)authentication.getCredentials());
 
-        Gson response = sendCredentialsToVertx(userLogin);
+        VertxResponse response = sendCredentialsToVertx(userLogin);
 
-        Gson gson = new Gson();
-        sessionData = response.fromJson(response.toString(), SessionData.class);
+        if(response.getError() == null){
+            SessionData sessionData = new SessionData(response.getUser(), response.getToken());
 
-        return null;
+            authentication = new UsernamePasswordAuthenticationToken(authentication.getName(), authentication.getCredentials(), authentication.getAuthorities());
+
+            return authentication;
+        } else{
+            throw new UsernameNotFoundException("Bad credentials");
+        }
     }
 
     @Override
@@ -36,15 +45,14 @@ public class AuthenticationProviderService implements AuthenticationProvider {
         return true;
     }
 
-    private Gson sendCredentialsToVertx(UserLogin userLogin) {
-        Gson response;
+    private VertxResponse sendCredentialsToVertx(UserLogin userLogin){
         RestTemplate restTemplate = new RestTemplate();
 
         try {
-            response = restTemplate.postForObject("http://localhost:8090/api/login", userLogin, Gson.class);
+            VertxResponse response = restTemplate.postForObject("http://" + vertxUrl + "/api/login", userLogin, VertxResponse.class);
             return response;
         } catch (Exception e){
-            return new Gson();
+            throw e;
         }
     }
 }
