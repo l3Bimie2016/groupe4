@@ -39,7 +39,7 @@
                 </form:select>
 
                 <br /><br />
-                <a href="/private/devis/habitation/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
+                <a href="/devis/habitation/etape2"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />
 
                 <br /><br />
                 <a href="/"><input type="button" value="Annuler" /></a>

@@ -29,7 +29,7 @@
     <p style="font-size: 25px"><span style="font-weight: bold">Dort dans un garage :</span> ${modelWizardVehicule.dortDansGarage}</p>
     <p style="font-size: 25px"><span style="font-weight: bold">Adresse :</span> ${modelWizardVehicule.adresse}</p>
 
-    <form:form method="post" action="/private/devis/vehicule/success" modelAttribute="modelWizardVehicule">
+    <form:form method="post" action="/devis/vehicule/success" modelAttribute="modelWizardVehicule">
         <p>
             <br />
             <label for="type">Type :</label>
@@ -39,7 +39,7 @@
             </form:select>
 
             <br /><br />
-            <a href="/private/devis/vehicule/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Terminer" />
+            <a href="/devis/vehicule/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Terminer" />
 
             <br /><br />
             <a href="/"><input type="button" value="Annuler" /></a>
