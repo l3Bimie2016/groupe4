@@ -9,14 +9,14 @@ import javax.persistence.*;
 public class QuotationHome {
     private int quotHid;
     private String quotHName;
-    private Double homeSurface;
+    private Integer homeSurface;
     private Integer homeNbRoom;
     private Integer quotStep;
     private Integer homeFloor;
     private Integer homeNbBathroom;
-    private Byte homeGarage;
-    private Double homeGardenSurface;
-    private Double homeTerraceSurface;
+    private Integer homeGarage;
+    private Integer homeGardenSurface;
+    private Integer homeTerraceSurface;
     private Double priceAssHome;
     private String userLogin;
 
@@ -47,11 +47,11 @@ public class QuotationHome {
 
     @Basic
     @Column(name = "homeSurface", nullable = true, precision = 0)
-    public Double getHomeSurface() {
+    public Integer getHomeSurface() {
         return homeSurface;
     }
 
-    public void setHomeSurface(Double homeSurface) {
+    public void setHomeSurface(Integer homeSurface) {
         this.homeSurface = homeSurface;
     }
 
@@ -97,31 +97,31 @@ public class QuotationHome {
 
     @Basic
     @Column(name = "homeGarage", nullable = true)
-    public Byte getHomeGarage() {
+    public Integer getHomeGarage() {
         return homeGarage;
     }
 
-    public void setHomeGarage(Byte homeGarage) {
+    public void setHomeGarage(Integer homeGarage) {
         this.homeGarage = homeGarage;
     }
 
     @Basic
     @Column(name = "homeGardenSurface", nullable = true, precision = 0)
-    public Double getHomeGardenSurface() {
+    public Integer getHomeGardenSurface() {
         return homeGardenSurface;
     }
 
-    public void setHomeGardenSurface(Double homeGardenSurface) {
+    public void setHomeGardenSurface(Integer homeGardenSurface) {
         this.homeGardenSurface = homeGardenSurface;
     }
 
     @Basic
     @Column(name = "homeTerraceSurface", nullable = true, precision = 0)
-    public Double getHomeTerraceSurface() {
+    public Integer getHomeTerraceSurface() {
         return homeTerraceSurface;
     }
 
-    public void setHomeTerraceSurface(Double homeTerraceSurface) {
+    public void setHomeTerraceSurface(Integer homeTerraceSurface) {
         this.homeTerraceSurface = homeTerraceSurface;
     }
 

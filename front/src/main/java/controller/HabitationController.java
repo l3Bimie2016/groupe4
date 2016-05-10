@@ -1,9 +1,6 @@
 package controller;
 
-import fr.ModelWizardHabitation;
-import fr.ModelWizardVehicule;
-import fr.SessionData;
-import fr.User;
+import fr.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -28,6 +25,9 @@ public class HabitationController {
 
     @Autowired
     private SessionData modelUser;
+
+    @Autowired
+    private DevisHabitationService devisHabitationService;
 
     @RequestMapping(value = "/private/devis/habitation/etape1", method = RequestMethod.GET)
     public ModelAndView step1(Map<String, Object> model) {
@@ -62,24 +62,40 @@ public class HabitationController {
     }
 
     @RequestMapping("/private/devis/habitation/etape2")
-    public ModelAndView step2(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
+    public ModelAndView step2(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
         modelWizardHabitation.setStep(1);
         ModelAndView step2 = new ModelAndView("devis/habitation-etape-2", "modelWizardHabitation", modelWizardHabitation);
+        Integer devisId = devisHabitationService.convertAndSaveByStep(modelWizardHabitation);
+        modelWizardHabitation.setIdDevis(devisId);
+
         return step2;
     }
 
     @RequestMapping("/private/devis/habitation/etape3")
-    public ModelAndView step3(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
+    public ModelAndView step3(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
         modelWizardHabitation.setStep(2);
         ModelAndView step3 = new ModelAndView("devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
+        devisHabitationService.convertAndSaveByStep(modelWizardHabitation);
         return step3;
     }
 
     @RequestMapping("/private/devis/habitation/etape4")
-    public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
+    public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
         modelWizardHabitation.setStep(3);
         ModelAndView step4 = new ModelAndView("devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
-        return step4    ;
+        devisHabitationService.convertAndSaveByStep(modelWizardHabitation);
+        return step4;
+    }
+
+    @RequestMapping("/private/devis/habitation/success")
+    public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
+        modelWizardHabitation.setStep(4);
+
+        ModelAndView r = new ModelAndView("devis/successDevisHabitation");
+        devisHabitationService.convertAndSaveByStep(modelWizardHabitation);
+
+        return r;
+
     }
 
 }
