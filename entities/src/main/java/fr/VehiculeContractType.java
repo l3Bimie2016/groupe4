@@ -10,16 +10,16 @@ import javax.persistence.Id;
  */
 @Entity
 public class VehiculeContractType {
-    private int vehicleContractId;
+    private Integer vehicleContractId;
     private String vehicleContract;
 
     @Id
     @Column(name = "vehicleContractID", nullable = false)
-    public int getVehicleContractId() {
+    public Integer getVehicleContractId() {
         return vehicleContractId;
     }
 
-    public void setVehicleContractId(int vehicleContractId) {
+    public void setVehicleContractId(Integer vehicleContractId) {
         this.vehicleContractId = vehicleContractId;
     }
 

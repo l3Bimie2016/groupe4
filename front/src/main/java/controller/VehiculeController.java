@@ -1,6 +1,9 @@
 package controller;
 
+import fr.DevisVehiculeRepository;
 import fr.ModelWizardVehicule;
+import fr.QuotationVehicle;
+import fr.WizardToEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -22,6 +25,9 @@ public class VehiculeController {
 
     @Autowired
     private VehiculeValidator vehiculeValidator;
+
+    @Autowired
+    private DevisVehiculeRepository devisVehiculeRepository;
 
     @InitBinder
     public void initBinderUser(WebDataBinder binder){
@@ -46,6 +52,7 @@ public class VehiculeController {
     public ModelAndView step2(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         //System.out.println("Step2");
 
+        modelWizardVehicule.setStep(1);
         //System.out.println(bindingResult.getErrorCount());
         //bindingResult.getAllErrors().forEach(x -> x.getDefaultMessage());
 
@@ -62,6 +69,7 @@ public class VehiculeController {
     @RequestMapping("/devis/vehicule/etape3")
     public ModelAndView step3(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
         System.out.println("step 3 : " + bindingResult.getErrorCount());
+        modelWizardVehicule.setStep(2);
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);
             return r;
@@ -72,6 +80,7 @@ public class VehiculeController {
 
     @RequestMapping("/devis/vehicule/etape4")
     public ModelAndView step4(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
+        modelWizardVehicule.setStep(3);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/vehicule-etape-4", "modelWizardVehicule", modelWizardVehicule);
@@ -83,9 +92,17 @@ public class VehiculeController {
 
     @RequestMapping("/devis/vehicule/success")
     public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult) {
+        modelWizardVehicule.setStep(4);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
+
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/successDevisVehicule");
+
+            QuotationVehicle quotationVehicle = new WizardToEntity(modelWizardVehicule).toEntity();
+            // @TODO : Blaise : Userlogin Session
+            quotationVehicle.setUserLogin("user2");
+            devisVehiculeRepository.save(quotationVehicle);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);

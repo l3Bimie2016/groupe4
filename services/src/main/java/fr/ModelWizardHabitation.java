@@ -1,62 +1,49 @@
 package fr;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
+import javax.validation.constraints.NotNull;
+
 /**
  * Created by nicol on 07/04/2016.
  */
 public class ModelWizardHabitation {
 
+
+    @NotEmpty
+    @NotNull
+    private Integer idDevis;
     private String nomDevis;
-
+    private String user;
     private String typeHabitation;
-
     private Integer Surface;
-
     private Integer nbPieces;
-
     private String etage;
-
     private Integer nbSalleDeBain;
-
     private String garage;
-
     private Integer surfaceTerrain;
-
     private Integer surfaceTerasse;
-
     private String typeChauffage;
 
-
-
-
-
-
-
-    public Integer getSurfaceTerrain() {
-        return surfaceTerrain;
+    public ModelWizardHabitation() {
     }
 
-    public void setSurfaceTerrain(Integer surfaceTerrain) {
-        this.surfaceTerrain = surfaceTerrain;
+    private Integer step;
+
+    public Integer getStep() {
+        return step;
     }
 
-    public Integer getSurfaceTerasse() {
-        return surfaceTerasse;
+    public void setStep(Integer step) {
+        this.step = step;
     }
 
-    public void setSurfaceTerasse(Integer surfaceTerasse) {
-        this.surfaceTerasse = surfaceTerasse;
+    public Integer getIdDevis() {
+        return idDevis;
     }
 
-    public String getTypeChauffage() {
-        return typeChauffage;
-    }
-
-    public void setTypeChauffage(String typeChauffage) {
-        this.typeChauffage = typeChauffage;
-    }
-
-    public String getEtage() {
-        return etage;
+    public void setIdDevis(Integer idDevis) {
+        this.idDevis = idDevis;
     }
 
     public void setEtage(String etage) {

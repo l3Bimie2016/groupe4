@@ -3,11 +3,13 @@ package fr;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 /**
  * Created by termiton on 06/04/16.
  */
 public interface DevisHabitationRepository extends CrudRepository<QuotationHome,Integer> {
 
-    QuotationHome findByUserLogin(String userLogin);
+    List<QuotationHome> findByUserLogin(String userLogin);
 
 }

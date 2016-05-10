@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>Devis Véhicule - Etape 1</title>
+    <spring:url value="/ressources/js/config.js" var="d" />
 </head>
 <body>
     <h1>Devis véhicule | Etape 1/4</h1>
@@ -33,18 +34,11 @@
 
             <br />
             <label for="carburant">Carburant :</label>
-            <form:select path="carburant" id="carburant" >
-                <form:option value="diesel">Diesel</form:option>
-                <form:option value="essence">Essence</form:option>
-            </form:select>
+            <form:select path="carburant" id="carburant" ></form:select>
 
             <br />
             <label for="chvxfiscaux">Cheveaux fiscaux :</label>
-            <form:select path="chvxfiscaux" id="chvxfiscaux" >
-                <form:option value="5">5</form:option>
-                <form:option value="6">6</form:option>
-                <form:option value="7">7</form:option>
-            </form:select>
+            <form:select path="chvxfiscaux" id="chvxfiscaux" ></form:select>
 
             <br /><br />
             <input type="submit" value="Etape suivante" />
@@ -58,31 +52,45 @@
 
         "use strict";
 
+        var databaseIP = '10.3.5.19';
+
         setMarques("${modelWizardVehicule.marque}");
-
-        let marque = document.getElementById("marque").value;
-        setModeles(marque, "${modelWizardVehicule.modele}");
-
-
+        if("${modelWizardVehicule.modele}" != '') {
+            setModeles("${modelWizardVehicule.marque}", "${modelWizardVehicule.modele}");
+            setCarburants("${modelWizardVehicule.modele}", "${modelWizardVehicule.carburant}");
+        }
 
         document.getElementById("marque").addEventListener("change", function(){
             let marque = document.getElementById("marque").value;
 
+            document.getElementById("modele").innerHTML = '';
+
             setModeles(marque, "");
+        });
+
+        document.getElementById("modele").addEventListener("change", function(){
+            let modele = document.getElementById("modele").value;
+            let select = document.getElementById("modele");
+            let modeleID = +select.options[select.selectedIndex].getAttribute('data-id');
+
+            document.getElementById("carburant").innerHTML = '';
+
+            setCarburants(modele, "");
+            setHP(modeleID, "");
         });
 
 
 
         function setMarques(m) {
-            fetch('http://10.3.4.21:8090/api/marques')
+            fetch('http://'+ databaseIP +':8090/api/marques')
             .then(function (response) {   //res => res.json()
                 return response.json();
             })
             .then(function (json) {
-                console.log(json)
                 for (var i in json) {
-                    console.log(json[i].vehicleBrand);
-
+                    if(i == 0 && "${modelWizardVehicule.modele}" == '') {
+                        setModeles(json[i].vehicleBrand, "");
+                    }
                     let opt = document.createElement("option");
                     const textOpt = document.createTextNode(json[i].vehicleBrand);
                     opt.value = json[i].vehicleBrand;
@@ -99,23 +107,72 @@
         }
 
         function setModeles(marque, m) {
-            fetch('http://10.3.4.21:8090/api/modeles?marque=' + marque)
+            fetch('http://'+ databaseIP +':8090/api/modeles?marque=' + marque)
             .then(function (response) {   //res => res.json()
                 return response.json();
             })
             .then(function (json) {
-                console.log(json)
                 for (var i in json) {
-                    console.log(json[i].vehicleBrand);
-
+                    if(i == 0 && "${modelWizardVehicule.carburant}" == '') {
+                        document.getElementById("carburant").innerHTML = '';
+                        setCarburants(json[i].vehicleModelName, "");
+                        setHP(json[i].vehicleModelID, "");
+                    }
                     let opt = document.createElement("option");
-                    const textOpt = document.createTextNode(json[i].vehicleBrand);
-                    opt.value = json[i].vehicleBrand;
-                    opt.innerHTML = json[i].vehicleBrand;
-                    if (json[i].vehicleBrand == m) {
+                    const textOpt = document.createTextNode(json[i].vehicleModelName);
+                    opt.value = json[i].vehicleModelName;
+                    opt.setAttribute('data-id', json[i].vehicleModelID);
+                    opt.innerHTML = json[i].vehicleModelName;
+                    if (json[i].vehicleModelName == m) {
                         opt.setAttribute('selected', true);
+                        setHP(json[i].vehicleModelID, "${modelWizardVehicule.chvxfiscaux}");
                     }
                     document.getElementById("modele").appendChild(opt);
+                }
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+        }
+
+        function setCarburants(modele, m) {
+            fetch('http://'+ databaseIP +':8090/api/fuel?modele=' + modele)
+            .then(function (response) {   //res => res.json()
+                return response.json();
+            })
+            .then(function (json) {
+                for (var i in json) {
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleFuelName);
+                    opt.value = json[i].vehicleFuelName;
+                    opt.innerHTML = json[i].vehicleFuelName;
+                    if (json[i].vehicleFuelName == m) {
+                        opt.setAttribute('selected', true);
+                    }
+                    document.getElementById("carburant").appendChild(opt);
+                }
+            })
+            .catch(function (err) {
+                console.error(err);
+            });
+        }
+
+        function setHP(modeleId, m) {
+            fetch('http://'+ databaseIP +':8090/api/hp?modeleId=' + modeleId)
+            .then(function (response) {   //res => res.json()
+                return response.json();
+            })
+            .then(function (json) {
+                document.getElementById("chvxfiscaux").innerHTML = '';
+                for (var i in json) {
+                    let opt = document.createElement("option");
+                    const textOpt = document.createTextNode(json[i].vehicleHPNb);
+                    opt.value = json[i].vehicleHPNb;
+                    opt.innerHTML = json[i].vehicleHPNb;
+                    if (json[i].vehicleHPNb == m) {
+                        opt.setAttribute('selected', true);
+                    }
+                    document.getElementById("chvxfiscaux").appendChild(opt);
                 }
             })
             .catch(function (err) {
