@@ -23,7 +23,8 @@ public class ListDevisController {
 
     @RequestMapping("/devis/listing")
     public String listing(Map<String, Object> model) {
-        String user = sessionData.getUser().toString();
+        UserVertx uv = sessionData.getUser();
+        String user = uv.getUserLogin();
         List<QuotationHome> devisHome = listingService.listDevisHome(user);
         List<QuotationVehicle> devisVehicle = listingService.listDevisVehicle(user);
         model.put("devisHome", devisHome);
