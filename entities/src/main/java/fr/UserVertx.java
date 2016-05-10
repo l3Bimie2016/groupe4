@@ -5,12 +5,23 @@ package fr;
  */
 public class UserVertx {
 
+    private Integer userID;
     private String userLogin;
     private String userPassword;
     private String userFirstName;
     private String userLastName;
     private String userAddress;
     private String userCity;
+
+    public UserVertx(){}
+
+    public Integer getUserID() {
+        return userID;
+    }
+
+    public void setUserID(Integer userID) {
+        this.userID = userID;
+    }
 
     public String getUserLogin() {
         return userLogin;
@@ -59,4 +70,5 @@ public class UserVertx {
     public void setUserCity(String userCity) {
         this.userCity = userCity;
     }
+
 }

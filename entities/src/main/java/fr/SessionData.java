@@ -14,11 +14,6 @@ public class SessionData {
     private UserVertx user;
     private String token;
 
-    public SessionData(UserVertx user, String token){
-        this.user = user;
-        this.token = token;
-    }
-
     public SessionData(){
     }
 
