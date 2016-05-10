@@ -37,8 +37,6 @@ public class ModelWizardVehicule {
     private Integer type;
     private Integer step;
 
-    private Integer step;
-
     public Integer getStep() {
         return step;
     }
@@ -135,12 +133,6 @@ public class ModelWizardVehicule {
     }
     public String getCarburant() {
         return carburant;
-    }
-    public Integer getStep() {
-        return step;
-    }
-    public void setStep(Integer step) {
-        this.step = step;
     }
     public String getNomDevis() {
         return nomDevis;

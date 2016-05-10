@@ -1,9 +1,6 @@
 package controller;
 
-import fr.DevisVehiculeRepository;
-import fr.ModelWizardVehicule;
-import fr.QuotationVehicle;
-import fr.WizardToEntity;
+import fr.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -28,6 +25,9 @@ public class VehiculeController {
 
     @Autowired
     private DevisVehiculeRepository devisVehiculeRepository;
+
+    @Autowired
+    private DevisVehiculeService devisVehiculeService;
 
     @InitBinder
     public void initBinderUser(WebDataBinder binder){
@@ -60,6 +60,10 @@ public class VehiculeController {
 
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/vehicule-etape-2", "modelWizardVehicule", modelWizardVehicule);
+
+            Integer devisId = devisVehiculeService.convertAndSaveByStep(modelWizardVehicule);
+            modelWizardVehicule.setIdDevis(devisId);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", modelWizardVehicule);
@@ -72,6 +76,9 @@ public class VehiculeController {
         modelWizardVehicule.setStep(2);
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);
+
+            devisVehiculeService.convertAndSaveByStep(modelWizardVehicule);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-2", "modelWizardVehicule", modelWizardVehicule);
@@ -84,6 +91,9 @@ public class VehiculeController {
         System.out.println("step 4 : " + bindingResult.getErrorCount());
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/vehicule-etape-4", "modelWizardVehicule", modelWizardVehicule);
+
+            devisVehiculeService.convertAndSaveByStep(modelWizardVehicule);
+
             return r;
         } else {
             return new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", modelWizardVehicule);
@@ -98,10 +108,7 @@ public class VehiculeController {
         if(bindingResult.getErrorCount() == 0) {
             ModelAndView r = new ModelAndView("devis/successDevisVehicule");
 
-            QuotationVehicle quotationVehicle = new WizardToEntity(modelWizardVehicule).toEntity();
-            // @TODO : Blaise : Userlogin Session
-            quotationVehicle.setUserLogin("user2");
-            devisVehiculeRepository.save(quotationVehicle);
+            devisVehiculeService.convertAndSaveByStep(modelWizardVehicule);
 
             return r;
         } else {

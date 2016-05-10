@@ -9,9 +9,9 @@ import javax.persistence.*;
 public class QuotationVehicle {
     private Integer quotVid;
     private String quotVName;
-    private Double priceAssVehicle;
+    private String datePermis;
     private Integer quotStep;
-    private String userDriverLicense;
+    private String userAddress;
     private Integer userNbAccident;
     private Double userBonus;
     private Integer vehicleShed;
@@ -37,7 +37,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "quotVName", nullable = true, length = 50)
+    @Column(name = "quotVName",  length = 50)
     public String getQuotVName() {
         return quotVName;
     }
@@ -47,13 +47,13 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "priceAssVehicle", nullable = true, precision = 0)
-    public Double getPriceAssVehicle() {
-        return priceAssVehicle;
+    @Column(name = "datePermis",  precision = 0)
+    public String getDatePermis() {
+        return datePermis;
     }
 
-    public void setPriceAssVehicle(Double priceAssVehicle) {
-        this.priceAssVehicle = priceAssVehicle;
+    public void setDatePermis(String datePermis) {
+        this.datePermis = datePermis;
     }
 
     @Basic
@@ -67,13 +67,13 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "userDriverLicense", nullable = true, length = 10)
-    public String getUserDriverLicense() {
-        return userDriverLicense;
+    @Column(name = "userAddress",  length = 255)
+    public String getUserAddress() {
+        return userAddress;
     }
 
-    public void setUserDriverLicense(String userDriverLicense) {
-        this.userDriverLicense = userDriverLicense;
+    public void setUserAddress(String userAddress) {
+        this.userAddress = userAddress;
     }
 
     @Basic
@@ -87,7 +87,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "userBonus", nullable = true, precision = 0)
+    @Column(name = "userBonus",  precision = 0)
     public Double getUserBonus() {
         return userBonus;
     }
@@ -107,7 +107,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "vehicleFirstDriver", nullable = true, length = 50)
+    @Column(name = "vehicleFirstDriver",  length = 50)
     public String getVehicleFirstDriver() {
         return vehicleFirstDriver;
     }
@@ -117,7 +117,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "vehicleSecondDriver", nullable = true, length = 50)
+    @Column(name = "vehicleSecondDriver",  length = 50)
     public String getVehicleSecondDriver() {
         return vehicleSecondDriver;
     }
@@ -128,7 +128,7 @@ public class QuotationVehicle {
 
 
     @Basic
-    @Column(name = "userLogin", nullable = false, length = 50)
+    @Column(name = "userLogin",  length = 50)
     public String getUserLogin() {
         return userLogin;
     }
@@ -138,7 +138,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "vehicleBrand", nullable = true, length = 50)
+    @Column(name = "vehicleBrand",  length = 50)
     public String getVehicleBrand() {
         return vehicleBrand;
     }
@@ -148,7 +148,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "vehicleModel", nullable = true, length = 50)
+    @Column(name = "vehicleModel",  length = 50)
     public String getVehicleModel() {
         return vehicleModel;
     }
@@ -158,7 +158,7 @@ public class QuotationVehicle {
     }
 
     @Basic
-    @Column(name = "vehicleFuel", nullable = true, length = 50)
+    @Column(name = "vehicleFuel",  length = 50)
     public String getVehicleFuel() {
         return vehicleFuel;
     }
@@ -179,7 +179,7 @@ public class QuotationVehicle {
 
 
     @ManyToOne
-    @JoinColumn(name = "vehicleContractID", referencedColumnName = "vehicleContractID", nullable = false)
+    @JoinColumn(name = "vehicleContractID", referencedColumnName = "vehicleContractID")
     public VehiculeContractType getVehicleContractType() {
         return vehicleContractType;
     }

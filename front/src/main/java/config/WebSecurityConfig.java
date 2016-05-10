@@ -65,23 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 */
     }
 
-    /**
-     * Service d'authentification
-     */
-    @Autowired
-    private AuthClientService authClientService;
 
-    /**
-     * Surcharge de la configuration
-     * @param auth
-     * @throws Exception
-     */
-    @Autowired
-    public void configureGlobal( AuthenticationManagerBuilder auth ) throws Exception
-    {
-        auth.userDetailsService(authClientService).passwordEncoder(new BCryptPasswordEncoder());
-
-    }
 
 
 }
