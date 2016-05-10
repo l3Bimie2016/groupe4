@@ -1,7 +1,9 @@
 package controller;
 
 import excep.MyException;
+import fr.SessionData;
 import fr.User;
+import fr.UserVertx;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
@@ -37,7 +39,11 @@ public class IndexController {
     @RequestMapping({"/","/index"})
     public String welcome(Map<String, Object> model) {
         String m = message;
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        SessionData s = new SessionData();
+        UserVertx uv = s.getUser();
+
+            Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.getPrincipal() != null && auth.getPrincipal() instanceof User) {
             User user = (User)auth.getPrincipal();
             //m = String.format("Hello %s", user.getUsername());

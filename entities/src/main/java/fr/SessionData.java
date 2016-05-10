@@ -19,6 +19,9 @@ public class SessionData {
         this.token = token;
     }
 
+    public SessionData(){
+    }
+
     public UserVertx getUser() {
         return user;
     }
