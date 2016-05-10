@@ -14,7 +14,7 @@
 <body>
     <h1>Félicitation, votre devis a bien été créé</h1>
 
-    <h3>Nicolas Melin</h3>
+    <h3></h3>
 
     <h2><a href="/">Retour à l'accueil</a></h2>
 

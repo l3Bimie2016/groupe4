@@ -21,7 +21,7 @@
     <body>
     <h1>Devis d'habitation | Etape 4/4</h1>
 
-    <h3>Nicolas Melin</h3>
+    <h3></h3>
 
     <h1>Résumé du devis :</h1>
 

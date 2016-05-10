@@ -21,7 +21,7 @@
     <body>
     <h1>Devis d'habitation | Etape 3/4</h1>
 
-    <h3>Nicolas Melin</h3>
+    <h3></h3>
 
         <form:form method="post" action="/devis/habitation/etape4" modelAttribute="modelWizardHabitation">
             <p>

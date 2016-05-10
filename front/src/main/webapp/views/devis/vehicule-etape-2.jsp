@@ -16,7 +16,7 @@
 <body>
     <h1>Devis véhicule | Etape 2/4</h1>
 
-    <h3>Nicolas Melin</h3>
+    <h3></h3>
 
     <form:form method="post" action="/devis/vehicule/etape3" modelAttribute="modelWizardVehicule">
         <p>

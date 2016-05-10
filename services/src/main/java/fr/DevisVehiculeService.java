@@ -9,8 +9,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class DevisVehiculeService {
     @Autowired
+    private SessionData sessionData;
+    @Autowired
     private DevisVehiculeRepository devisVehiculeRepository;
     public Integer convertAndSaveByStep(ModelWizardVehicule model){
+        UserVertx uv = sessionData.getUser();
+        String user = uv.getUserLogin();
         QuotationVehicle quotationVehicle = new QuotationVehicle();
         Integer step = model.getStep();
         switch (step){
@@ -75,7 +79,7 @@ public class DevisVehiculeService {
                 break;
         }
         // @TODO: Blaise : changer user avec security
-        quotationVehicle.setUserLogin("user2");
+        quotationVehicle.setUserLogin(user);
         quotationVehicle.setQuotStep(step);
         devisVehiculeRepository.save(quotationVehicle);
         return quotationVehicle.getQuotVid();
