@@ -1,9 +1,11 @@
 package fr;
 
+
 /**
  * Created by termiton on 09/05/16.
  */
 public class WizardToEntity {
+
     private ModelWizardVehicule modelWizardVehicule;
 
     public QuotationVehicle toEntity(){
@@ -34,11 +36,9 @@ public class WizardToEntity {
     public WizardToEntity(ModelWizardVehicule modelWizardVehicule) {
         this.modelWizardVehicule = modelWizardVehicule;
     }
-
     public ModelWizardVehicule getModelWizardVehicule() {
         return modelWizardVehicule;
     }
-
     public void setModelWizardVehicule(ModelWizardVehicule modelWizardVehicule) {
         this.modelWizardVehicule = modelWizardVehicule;
     }
