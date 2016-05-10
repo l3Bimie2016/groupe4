@@ -30,7 +30,9 @@ public class AuthenticationProviderService implements AuthenticationProvider {
         VertxResponse response = sendCredentialsToVertx(userLogin);
 
         if(response.getError() == null){
-            SessionData sessionData = new SessionData(response.getUser(), response.getToken());
+
+            sessionData.setToken(response.getToken());
+            sessionData.setUser(response.getUser());
 
             authentication = new UsernamePasswordAuthenticationToken(authentication.getName(), authentication.getCredentials(), authentication.getAuthorities());
 

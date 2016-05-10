@@ -25,7 +25,7 @@ import java.util.Map;
 public class IndexController {
 
     @Autowired
-    private ModelUser modelUser;
+    private SessionData modelUser;
 
     @Value("${application.message:Hello World}")
     private String message = "";
@@ -40,8 +40,11 @@ public class IndexController {
     public String welcome(Map<String, Object> model) {
         String m = message;
 
-        SessionData s = new SessionData();
-        UserVertx uv = s.getUser();
+        UserVertx uv = modelUser.getUser();
+
+        if(uv != null) {
+            m = "Bonjour "+uv.getUserFirstName()+' '+uv.getUserLastName();
+        }
 
             Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         if (auth != null && auth.getPrincipal() != null && auth.getPrincipal() instanceof User) {
