@@ -60,14 +60,6 @@ public class VehiculeController {
         //User user = new User("Nicolas", "Melin", "Nico", "nicowd");
         //model.put("user", user);
 
-        if(id != null) {
-            System.out.println(id);
-
-            ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
-
-            return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", veh);
-        }
-
         return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", new ModelWizardVehicule());
         //return "devis/vehicule-etape-1";
     }
@@ -75,15 +67,6 @@ public class VehiculeController {
     @RequestMapping("/private/back/devis/vehicule/etape1")
     public ModelAndView backStep1(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult, @RequestParam(required = false) Integer id) {
 
-        /*
-        if(id != null) {
-            System.out.println(id);
-
-            ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
-
-            return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", veh);
-        }
-*/
         return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", modelWizardVehicule);
     }
 
@@ -114,14 +97,6 @@ public class VehiculeController {
     @RequestMapping("/private/devis/vehicule/etape3")
     public ModelAndView step3(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult, @RequestParam(required = false) Integer id) {
 
-        if(id != null) {
-            System.out.println(id);
-
-            ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
-            //veh.setStep(2);
-            return new ModelAndView("devis/vehicule-etape-3", "modelWizardVehicule", veh);
-        }
-
         System.out.println("step 3 : " + bindingResult.getErrorCount());
         modelWizardVehicule.setStep(2);
         if(bindingResult.getErrorCount() == 0) {
@@ -138,14 +113,6 @@ public class VehiculeController {
     @RequestMapping("/private/devis/vehicule/etape4")
     public ModelAndView step4(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult, @RequestParam(required = false) Integer id) {
 
-        if(id != null) {
-            System.out.println(id);
-
-            ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
-            //veh.setStep(3);
-            return new ModelAndView("devis/vehicule-etape-4", "modelWizardVehicule", veh);
-        }
-
         modelWizardVehicule.setStep(3);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
         if(bindingResult.getErrorCount() == 0) {
@@ -161,14 +128,6 @@ public class VehiculeController {
 
     @RequestMapping("/private/devis/vehicule/success")
     public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult, @RequestParam(required = false) Integer id) {
-
-        if(id != null) {
-            System.out.println(id);
-
-            ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
-            //veh.setStep(4);
-            return new ModelAndView("devis/successDevisVehicule", "modelWizardVehicule", veh);
-        }
 
         modelWizardVehicule.setStep(4);
         System.out.println("step 4 : " + bindingResult.getErrorCount());
