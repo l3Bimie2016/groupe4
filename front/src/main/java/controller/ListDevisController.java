@@ -21,7 +21,7 @@ public class ListDevisController {
     @Autowired
     private SessionData sessionData;
 
-    @RequestMapping("/devis/listing")
+    @RequestMapping("/private/devis/listing")
     public String listing(Map<String, Object> model) {
         UserVertx uv = sessionData.getUser();
         String user = uv.getUserLogin();
