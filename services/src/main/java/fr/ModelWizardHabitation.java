@@ -21,6 +21,20 @@ public class ModelWizardHabitation {
     private String etage;
     private Integer nbSalleDeBain;
     private String garage;
+    private Integer step;
+    private Integer surfaceTerrain;
+    private Integer surfaceTerasse;
+    private String typeChauffage;
+
+    public Integer getTypeForlmule() {
+        return typeForlmule;
+    }
+
+    public void setTypeForlmule(Integer typeForlmule) {
+        this.typeForlmule = typeForlmule;
+    }
+
+    private Integer typeForlmule;
 
     public Integer getSurfaceTerrain() {
         return surfaceTerrain;
@@ -46,14 +60,12 @@ public class ModelWizardHabitation {
         this.typeChauffage = typeChauffage;
     }
 
-    private Integer surfaceTerrain;
-    private Integer surfaceTerasse;
-    private String typeChauffage;
+
 
     public ModelWizardHabitation() {
     }
 
-    private Integer step;
+
 
     public Integer getStep() {
         return step;

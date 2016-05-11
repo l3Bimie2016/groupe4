@@ -12,7 +12,7 @@
     <title>Devis validé</title>
 </head>
 <body>
-    <h1>Félicitation, votre devis véhicule a bien été créé</h1>
+    <h1>Félicitation, votre devis habitation a bien été créé</h1>
 
     <h2><a href="/">Retour à l'accueil</a></h2>
 

@@ -79,7 +79,20 @@ public class HabitationController {
     public ModelAndView step4(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult){
         modelWizardHabitation.setStep(3);
         ModelAndView step4 = new ModelAndView("devis/habitation-etape-4", "modelWizardHabitation", modelWizardHabitation);
-        return step4    ;
+        return step4;
+    }
+
+    @RequestMapping("/private/devis/habitation/success")
+    public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
+        modelWizardHabitation.setStep(4);
+
+        if(bindingResult.getErrorCount() == 0) {
+            ModelAndView r = new ModelAndView("devis/successDevisHabitation");
+
+            return r;
+        } else {
+            return new ModelAndView("devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
+        }
     }
 
 }
