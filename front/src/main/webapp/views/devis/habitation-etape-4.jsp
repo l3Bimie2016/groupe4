@@ -32,8 +32,15 @@
     <p style="font-size: 25px"><span style="font-weight: bold">Surface de la terrasse : </span> ${modelWizardHabitation.surfaceTerrain} m²</p>
     <p style="font-size: 25px"><span style="font-weight: bold">Type de chauffage : </span> ${modelWizardHabitation.typeChauffage}</p>
 
-        <form:form method="post" action="/devis/habitation/success" modelAttribute="modelWizardHabitation">
+        <form:form method="post" action="/private/devis/habitation/success" modelAttribute="modelWizardHabitation">
             <p>
+
+                <br />
+                <label for="typeForlmule">Type de formule :</label>
+                <form:select path="typeForlmule">
+                    <form:option value="1">Formule 1</form:option>
+                    <form:option value="2">Formule 2</form:option>
+                </form:select>
 
                 <br /><br />
                 <a href="/private/devis/habitation/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Etape suivante" />

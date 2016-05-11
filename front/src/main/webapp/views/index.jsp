@@ -5,9 +5,9 @@
 <html lang="en">
 
 <body>
-	<h1>Bienvenue chez Arnassure 2000, le champion de <s>l'arnaque</s> l'assurance</h1>
+	<h1 style="text-align: center;">Bienvenue chez Arnassure 2000, le champion de <s>l'arnaque</s> l'assurance</h1>
 	<br />
-	${message}
+	<h2 style="text-align: center;">${message}</h2>
     <br />
 	<p><a href="/private/devis/habitation/etape1">Devis Immobilier</a></p>
     <p><a href="/private/devis/vehicule/etape1">Devis Véhicule</a></p>

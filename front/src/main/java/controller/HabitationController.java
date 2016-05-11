@@ -1,6 +1,9 @@
 package controller;
 
-import fr.*;
+import fr.ModelWizardHabitation;
+import fr.ModelWizardVehicule;
+import fr.SessionData;
+import fr.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
@@ -91,11 +94,13 @@ public class HabitationController {
     public ModelAndView succesDevisVehicule(@ModelAttribute("modelWizardHabitation") @Valid ModelWizardHabitation modelWizardHabitation, BindingResult bindingResult) {
         modelWizardHabitation.setStep(4);
 
-        ModelAndView r = new ModelAndView("devis/successDevisHabitation");
-        devisHabitationService.convertAndSaveByStep(modelWizardHabitation);
+        if(bindingResult.getErrorCount() == 0) {
+            ModelAndView r = new ModelAndView("devis/successDevisHabitation");
 
-        return r;
-
+            return r;
+        } else {
+            return new ModelAndView("devis/habitation-etape-3", "modelWizardHabitation", modelWizardHabitation);
+        }
     }
 
 }
