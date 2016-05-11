@@ -75,13 +75,15 @@ public class VehiculeController {
     @RequestMapping("/private/back/devis/vehicule/etape1")
     public ModelAndView backStep1(@ModelAttribute("modelWizardVehicule") @Valid ModelWizardVehicule modelWizardVehicule, BindingResult bindingResult, @RequestParam(required = false) Integer id) {
 
+        /*
         if(id != null) {
             System.out.println(id);
 
             ModelWizardVehicule veh = devisGetIDService.getVehicule(id);
+
             return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", veh);
         }
-
+*/
         return new ModelAndView("devis/vehicule-etape-1", "modelWizardVehicule", modelWizardVehicule);
     }
 
