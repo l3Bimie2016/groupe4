@@ -24,6 +24,7 @@ public class DevisHabitationService {
                 quotationHome.setHomeSurface(model.getSurface());
                 break;
             case 2:
+                quotationHome.setQuotHid(model.getIdDevis());
                 quotationHome.setQuotHName(model.getNomDevis());
                 quotationHome.setHomeNote(model.getTypeHabitation());
                 quotationHome.setHomeSurface(model.getSurface());
@@ -37,6 +38,7 @@ public class DevisHabitationService {
                 }
                 break;
             case 3:
+                quotationHome.setQuotHid(model.getIdDevis());
                 quotationHome.setQuotHName(model.getNomDevis());
                 quotationHome.setHomeNote(model.getTypeHabitation());
                 quotationHome.setHomeSurface(model.getSurface());
@@ -53,6 +55,7 @@ public class DevisHabitationService {
                 quotationHome.setHomeHeater(model.getTypeChauffage());
                 break;
             case 4:
+                quotationHome.setQuotHid(model.getIdDevis());
                 quotationHome.setQuotHName(model.getNomDevis());
                 quotationHome.setHomeNote(model.getTypeHabitation());
                 quotationHome.setHomeSurface(model.getSurface());
@@ -72,7 +75,6 @@ public class DevisHabitationService {
                 quotationHome.setHomeContract(homeContractType);
                 break;
         }
-        // @TODO: Blaise : changer user avec security
         quotationHome.setUserLogin(user);
         quotationHome.setQuotStep(step);
         devisHabitationRepository.save(quotationHome);

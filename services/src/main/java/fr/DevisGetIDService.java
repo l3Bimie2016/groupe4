@@ -14,10 +14,31 @@ public class DevisGetIDService {
     @Autowired
     private DevisHabitationRepository devisHabitationRepository;
 
-    public QuotationVehicle getVehicule(Integer id){
+    public ModelWizardVehicule getVehicule(Integer id){
+        ModelWizardVehicule model = new ModelWizardVehicule();
         QuotationVehicle quotationVehicle;
         quotationVehicle = devisVehiculeRepository.findOne(id);
-        return quotationVehicle;
+        model.setIdDevis(quotationVehicle.getQuotVid());
+        model.setNomDevis(quotationVehicle.getQuotVName());
+        model.setMarque(quotationVehicle.getVehicleBrand());
+        model.setModele(quotationVehicle.getVehicleModel());
+        model.setCarburant(quotationVehicle.getVehicleFuel());
+        model.setChvxfiscaux(quotationVehicle.getVehicleHp());
+        model.setDatePermis(quotationVehicle.getDatePermis());
+        model.setNbAccident(quotationVehicle.getUserNbAccident());
+        model.setBonusMalus(quotationVehicle.getUserBonus());
+        model.setConducteurPrincipal(quotationVehicle.getVehicleFirstDriver());
+        model.setConducteurSecondaire(quotationVehicle.getVehicleSecondDriver());
+        if(quotationVehicle.getVehicleShed() == 1) {
+            model.setDortDasnsGarage("oui");
+        }else{
+            model.setDortDasnsGarage("non");
+        }
+        model.setAdresse(quotationVehicle.getUserAddress());
+        model.setStep(quotationVehicle.getQuotStep());
+        VehiculeContractType vehiculeContractType = quotationVehicle.getVehicleContractType();
+        model.setType(vehiculeContractType.getVehicleContractId());
+        return model;
     }
 
     public QuotationHome getHome(Integer id){
