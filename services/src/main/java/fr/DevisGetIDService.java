@@ -29,7 +29,7 @@ public class DevisGetIDService {
         model.setBonusMalus(quotationVehicle.getUserBonus());
         model.setConducteurPrincipal(quotationVehicle.getVehicleFirstDriver());
         model.setConducteurSecondaire(quotationVehicle.getVehicleSecondDriver());
-        if(quotationVehicle.getVehicleShed() == 1) {
+        if(1 == quotationVehicle.getVehicleShed()) {
             model.setDortDasnsGarage("oui");
         }else{
             model.setDortDasnsGarage("non");
@@ -41,10 +41,29 @@ public class DevisGetIDService {
         return model;
     }
 
-    public QuotationHome getHome(Integer id){
+    public ModelWizardHabitation getHome(Integer id){
+        ModelWizardHabitation model = new ModelWizardHabitation();
         QuotationHome quotationHome;
         quotationHome = devisHabitationRepository.findOne(id);
-        return quotationHome;
+        model.setIdDevis(quotationHome.getQuotHid());
+        model.setNomDevis(quotationHome.getQuotHName());
+        model.setTypeHabitation(quotationHome.getHomeNote());
+        model.setSurface(quotationHome.getHomeSurface());
+        model.setNbPieces(quotationHome.getHomeNbRoom());
+        model.setEtage(quotationHome.getHomeFloor().toString());
+        model.setNbSalleDeBain(quotationHome.getHomeNbBathroom());
+        if(1 == quotationHome.getHomeGarage()){
+            model.setGarage("oui");
+        }else{
+            model.setGarage("non");
+        }
+        model.setStep(quotationHome.getQuotStep());
+        model.setSurfaceTerrain(quotationHome.getHomeGardenSurface());
+        model.setSurfaceTerasse(quotationHome.getHomeTerraceSurface());
+        model.setTypeChauffage(quotationHome.getHomeHeater());
+        HomeContractType homeContractType = quotationHome.getHomeContract();
+        model.setTypeForlmule(homeContractType.getHomeContractId());
+        return model;
     }
 
 
