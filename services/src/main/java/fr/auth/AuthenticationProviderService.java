@@ -21,7 +21,8 @@ public class AuthenticationProviderService implements AuthenticationProvider {
     @Autowired
     private SessionData sessionData;
 
-    private String vertxUrl = "10.3.5.19:8090";
+    private String vertxUrl = "10.3.5.19:8090"; // clement
+    //private String vertxUrl = "10.3.5.33:8090"; // blaise
 
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
