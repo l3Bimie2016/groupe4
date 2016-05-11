@@ -7,7 +7,7 @@ import javax.persistence.*;
  */
 @Entity
 public class QuotationHome {
-    private int quotHid;
+    private Integer quotHid;
     private String quotHName;
     private Integer homeSurface;
     private Integer homeNbRoom;
@@ -26,12 +26,13 @@ public class QuotationHome {
     private HomeContractType homeContract;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "quotHID", nullable = false)
-    public int getQuotHid() {
+    public Integer getQuotHid() {
         return quotHid;
     }
 
-    public void setQuotHid(int quotHid) {
+    public void setQuotHid(Integer quotHid) {
         this.quotHid = quotHid;
     }
 
