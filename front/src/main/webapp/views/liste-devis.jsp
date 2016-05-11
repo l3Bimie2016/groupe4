@@ -46,6 +46,8 @@
     </c:if>
 
 </c:forEach>
+<br /><br />
+<a href="/"><input type="button" value="Retour" /></a>
 
 </body>
 </html>
