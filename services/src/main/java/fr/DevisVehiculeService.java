@@ -78,7 +78,6 @@ public class DevisVehiculeService {
                 quotationVehicle.setVehicleContractType(vehiculeContractType);
                 break;
         }
-        // @TODO: Blaise : changer user avec security
         quotationVehicle.setUserLogin(user);
         quotationVehicle.setQuotStep(step);
         devisVehiculeRepository.save(quotationVehicle);

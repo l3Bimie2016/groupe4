@@ -67,6 +67,9 @@ public class DevisHabitationService {
                 quotationHome.setHomeGardenSurface(model.getSurfaceTerrain());
                 quotationHome.setHomeTerraceSurface(model.getSurfaceTerasse());
                 quotationHome.setHomeHeater(model.getTypeChauffage());
+                HomeContractType homeContractType = new HomeContractType();
+                homeContractType.setHomeContractId(model.getTypeForlmule());
+                quotationHome.setHomeContract(homeContractType);
                 break;
         }
         // @TODO: Blaise : changer user avec security
