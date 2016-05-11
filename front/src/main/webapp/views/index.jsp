@@ -21,9 +21,10 @@
         if(${isLogin}) {
             document.getElementById("login").remove();
             document.getElementById("signup").remove();
-            document.getElementById("profile").remove();
+
         } else {
             document.getElementById("logout").remove();
+            document.getElementById("profile").remove();
         }
     </script>
 

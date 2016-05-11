@@ -18,32 +18,13 @@
     <title>Profil utilisateur</title>
 </head>
 <body>
-<h1>Liste des devis</h1>
+<h1>Profil de ${userLogin}</h1>
+<p>Prénom : ${userName}</p>
+<p>Nom : ${userLastName}</p>
+<p>Adresse : ${userAddress}</p>
+<p>Ville : ${userCity}</p>
 
-<h3>Ass Hure 2000</h3>
-
-<h4>Devis Habitat</h4>
-<c:forEach var="quote" items="${devisHome}">
-    <c:set var="step" scope="request" value="${quote.quotStep}"/>
-    <c:if test="${step != 4}">
-        <p><a href="" target="_blank"><c:out value="${quote.quotHName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
-    </c:if>
-    <c:if test="${step == 4}">
-        <p><c:out value="${quote.quotHName}"></c:out> <span style="font-weight: bold;">... Terminé</span></p>
-    </c:if>
-</c:forEach>
-
-<h4>Devis Véhicule</h4>
-<c:forEach var="quote" items="${devisVehicle}">
-    <c:set var="step" scope="request" value="${quote.quotStep}"/>
-    <c:if test="${step != 4}">
-        <p><a href="" target="_blank"><c:out value="${quote.quotVName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
-    </c:if>
-    <c:if test="${step == 4}">
-        <p><c:out value="${quote.quotVName}"></c:out> <span style="font-weight: bold;">... Terminé</span></p>
-    </c:if>
-
-</c:forEach>
-
+<br /><br />
+<a href="/"><input type="button" value="Retour" /></a>
 </body>
 </html>
