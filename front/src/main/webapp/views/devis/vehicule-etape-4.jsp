@@ -39,7 +39,7 @@
             </form:select>
 
             <br /><br />
-            <a href="/devis/vehicule/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Terminer" />
+            <a href="/private/devis/vehicule/etape3"><input type="button" value="Etape précédente" /></a> <input type="submit" value="Terminer" />
 
             <br /><br />
             <a href="/"><input type="button" value="Annuler" /></a>

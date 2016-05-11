@@ -24,9 +24,6 @@ public class VehiculeController {
     private VehiculeValidator vehiculeValidator;
 
     @Autowired
-    private DevisVehiculeRepository devisVehiculeRepository;
-
-    @Autowired
     private DevisVehiculeService devisVehiculeService;
 
     @InitBinder
