@@ -25,8 +25,9 @@
 <h4>Devis Habitat</h4>
 <c:forEach var="quote" items="${devisHome}">
     <c:set var="step" scope="request" value="${quote.quotStep}"/>
+    <c:set var="id" scope="request" value="${quote.quotHid}"/>
     <c:if test="${step != 4}">
-        <p><a href="" target="_blank"><c:out value="${quote.quotHName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
+        <p><a href="/private/devis/vehicule/resume?id=${id}"><c:out value="${quote.quotHName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
     </c:if>
     <c:if test="${step == 4}">
         <p><c:out value="${quote.quotHName}"></c:out> <span style="font-weight: bold;">... Terminé</span></p>
@@ -36,8 +37,9 @@
 <h4>Devis Véhicule</h4>
 <c:forEach var="quote" items="${devisVehicle}">
     <c:set var="step" scope="request" value="${quote.quotStep}"/>
+    <c:set var="id" scope="request" value="${quote.quotVid}"/>
     <c:if test="${step != 4}">
-        <p><a href="" target="_blank"><c:out value="${quote.quotVName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
+        <p><a href="/private/devis/vehicule/resume?id=${id}"><c:out value="${quote.quotVName}"></c:out></a> <span style="font-weight: bold;">... En cours étape n°${step}</span></p>
     </c:if>
     <c:if test="${step == 4}">
         <p><c:out value="${quote.quotVName}"></c:out> <span style="font-weight: bold;">... Terminé</span></p>

@@ -29,7 +29,7 @@ public class DevisGetIDService {
         model.setBonusMalus(quotationVehicle.getUserBonus());
         model.setConducteurPrincipal(quotationVehicle.getVehicleFirstDriver());
         model.setConducteurSecondaire(quotationVehicle.getVehicleSecondDriver());
-        if(quotationVehicle.getVehicleShed() == 1) {
+        if(quotationVehicle.getVehicleShed() != null && quotationVehicle.getVehicleShed().intValue() == 1) {
             model.setDortDasnsGarage("oui");
         }else{
             model.setDortDasnsGarage("non");
@@ -37,7 +37,10 @@ public class DevisGetIDService {
         model.setAdresse(quotationVehicle.getUserAddress());
         model.setStep(quotationVehicle.getQuotStep());
         VehiculeContractType vehiculeContractType = quotationVehicle.getVehicleContractType();
-        model.setType(vehiculeContractType.getVehicleContractId());
+        if(vehiculeContractType != null) {
+            model.setType(vehiculeContractType.getVehicleContractId());
+        }
+
         return model;
     }
 
